@@ -29,7 +29,7 @@
   .an{opacity:0;transform:translateY(22px);transition:opacity .65s ease-out,transform .65s ease-out}
   .an.v{opacity:1;transform:none}
 
-  /* Hero Section */
+  /* 1. Hero / Intro Section */
   .hero{display:grid;grid-template-columns:1.15fr 0.85fr;gap:48px;align-items:center;padding-top:64px;padding-bottom:80px}
   @media(max-width:860px){.hero{grid-template-columns:1fr;gap:40px;padding-top:44px}}
   .headline{font-family:'Lato',sans-serif;font-size:clamp(44px,6vw,68px);font-weight:700;color:#206A94;margin:0 0 26px;letter-spacing:-0.5px;min-height:1.2em}
@@ -49,7 +49,21 @@
   .collage .tall{grid-row:span 2;height:414px;object-position:center 20%}
   .collage .sq{height:200px;object-position:center 25%}
 
-  /* Credentials Grid */
+  /* 2. Infinite Auto-Scrolling Technical Skills */
+  .tk-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:20px}
+  .tk-sub{font-size:12px;font-weight:600;color:#9CA3AF}
+  .marquee{display:flex;gap:16px;overflow-x:auto;padding:6px 2px 16px;scrollbar-width:none}
+  .marquee::-webkit-scrollbar{display:none}
+  .sk-card{flex:0 0 190px;background:#FFF;border:1.5px solid #EBECEF;border-radius:16px;padding:14px 14px 18px;text-align:center;transition:.2s}
+  .sk-card:hover{border-color:#111827;transform:translateY(-2px)}
+  .sk-box{height:70px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+  .sk-box img,.sk-box svg{width:38px;height:38px;object-fit:contain;border-radius:6px}
+  .sk-box img.flag{width:54px;height:36px;border-radius:4px;box-shadow:0 1px 4px rgba(0,0,0,.1)}
+  .p{background:#FDF0EA}.d{background:#F2F1EE}.i{background:#ECEFFC}.a{background:#FCF2DF}.g{background:#E7F5EC}.k{background:#E8F3FA}.o{background:#FCECEF}
+  .sk-n{font-size:15px;font-weight:600;color:#111827;margin-bottom:5px}
+  .sk-g{font-size:10.5px;font-weight:600;letter-spacing:.12em;color:#9CA3AF;line-height:1.3}
+
+  /* 3. Credentials Grid */
   .cred-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:18px}
   .cred-card{flex:0 1 calc(50% - 9px);min-width:320px;display:flex;align-items:center;gap:22px;background:#FFF;border:1px solid #E5E7EB;border-radius:16px;padding:24px 26px;transition:.2s}
   .cred-card:hover{border-color:#111827;box-shadow:0 6px 18px rgba(0,0,0,.04)}
@@ -61,7 +75,7 @@
   .btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border:1px solid #D1D5DB;border-radius:999px;font-size:13px;font-weight:600;color:#111827;text-decoration:none;background:#FFF;transition:.2s}
   .btn:hover{border-color:#111827;background:#F9FAFB}
 
-  /* Experience & Education */
+  /* 4. Experience & Education */
   .edu{display:flex;align-items:center;gap:20px;border:1px solid #E5E7EB;border-radius:16px;padding:22px 26px;background:#FFF;margin-bottom:24px}
   .ub{width:56px;height:56px;border-radius:12px;background:#002145;color:#FFF;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:700;font-size:15px;letter-spacing:.04em}
   .et{font-size:20px;font-weight:700;margin:2px 0 4px}
@@ -79,21 +93,7 @@
   .pill{align-self:flex-start;margin-top:24px;flex-shrink:0;font-size:12px;font-weight:600;color:#4B5563;border:1px solid #E5E7EB;border-radius:999px;padding:6px 14px;background:#FFF}
   @media(max-width:640px){.row{flex-wrap:wrap}.dt{flex:0 0 100%;padding:20px 0 0}.tl{display:none}.mid{padding:8px 0 20px}.pill{margin-top:0;margin-bottom:20px}}
 
-  /* Infinite Auto-Scrolling Technical Skills */
-  .tk-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:20px}
-  .tk-sub{font-size:12px;font-weight:600;color:#9CA3AF}
-  .marquee{display:flex;gap:16px;overflow-x:auto;padding:6px 2px 16px;scrollbar-width:none}
-  .marquee::-webkit-scrollbar{display:none}
-  .sk-card{flex:0 0 190px;background:#FFF;border:1.5px solid #EBECEF;border-radius:16px;padding:14px 14px 18px;text-align:center;transition:.2s}
-  .sk-card:hover{border-color:#111827;transform:translateY(-2px)}
-  .sk-box{height:70px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
-  .sk-box img,.sk-box svg{width:38px;height:38px;object-fit:contain;border-radius:6px}
-  .sk-box img.flag{width:54px;height:36px;border-radius:4px;box-shadow:0 1px 4px rgba(0,0,0,.1)}
-  .p{background:#FDF0EA}.d{background:#F2F1EE}.i{background:#ECEFFC}.a{background:#FCF2DF}.g{background:#E7F5EC}.k{background:#E8F3FA}.o{background:#FCECEF}
-  .sk-n{font-size:15px;font-weight:600;color:#111827;margin-bottom:5px}
-  .sk-g{font-size:10.5px;font-weight:600;letter-spacing:.12em;color:#9CA3AF;line-height:1.3}
-
-  /* Selected Work Grid */
+  /* 5. Selected Work Grid */
   .work-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px}
   .work-card{background:#FFF;border:1px solid #E5E7EB;border-radius:16px;overflow:hidden;transition:.2s}
   .work-card:hover{border-color:#111827;transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.05)}
@@ -114,9 +114,9 @@
   <div class="nav-in">
     <a class="brand" href="#">Dylan Klatt</a>
     <div class="nav-links">
+      <a class="hide-m" href="#skills">Skills</a>
       <a class="hide-m" href="#credentials">Credentials</a>
       <a class="hide-m" href="#experience">Experience</a>
-      <a class="hide-m" href="#skills">Toolkit</a>
       <a class="hide-m" href="#work">Selected Work</a>
       <a class="btn" href="https://www.linkedin.com/in/dylan-klatt-499aa4345" target="_blank" rel="noopener">LinkedIn &rarr;</a>
     </div>
@@ -124,7 +124,7 @@
 </nav>
 
 <div class="wrap">
-  <!-- HERO -->
+  <!-- 1. INTRO / HERO -->
   <section class="hero">
     <div>
       <h1 class="headline"><span id="typed-headline"></span><span class="cursor cursor-blue" id="cursor-1">&nbsp;</span></h1>
@@ -141,7 +141,29 @@
     </div>
   </section>
 
-  <!-- CREDENTIALS (MOVED BEFORE EXPERIENCE) -->
+  <!-- 2. SKILLS -->
+  <section id="skills" class="an">
+    <div class="tk-head">
+      <div><div class="eyebrow">&mdash; Toolkit</div><h2 class="sec-title" style="margin-bottom:0">Technical skills</h2></div>
+      <div class="tk-sub">Auto-scrolling &middot; Hover to pause</div>
+    </div>
+    <div class="marquee" id="r">
+      <div class="sk-card"><div class="sk-box i"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" alt="C++"></div><div class="sk-n">C / C++</div><div class="sk-g">PROGRAMMING</div></div>
+      <div class="sk-card"><div class="sk-box o"><img src="https://img.icons8.com/color/96/solidworks.png" alt="SolidWorks"></div><div class="sk-n">SolidWorks</div><div class="sk-g">3D CAD</div></div>
+      <div class="sk-card"><div class="sk-box p"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fusion/fusion-original.svg" alt="Fusion"></div><div class="sk-n">Fusion</div><div class="sk-g">CAD / CAM</div></div>
+      <div class="sk-card"><div class="sk-box o"><img src="https://img.icons8.com/color/96/autocad.png" alt="AutoCAD"></div><div class="sk-n">AutoCAD</div><div class="sk-g">2D DRAFTING</div></div>
+      <div class="sk-card"><div class="sk-box a"><img src="https://cdn.simpleicons.org/ansys/FFB71B" alt="ANSYS"></div><div class="sk-n">ANSYS</div><div class="sk-g">FEA &amp; CFD</div></div>
+      <div class="sk-card"><div class="sk-box d"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub"></div><div class="sk-n">GitHub</div><div class="sk-g">VERSION CONTROL</div></div>
+      <div class="sk-card"><div class="sk-box g"><img src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/bambu-lab.svg" alt="Bambu Lab"></div><div class="sk-n">3D Printing</div><div class="sk-g">BAMBU LAB</div></div>
+      <div class="sk-card"><div class="sk-box a"><img src="https://img.icons8.com/color/96/cnc-machine.png" alt="CNC"></div><div class="sk-n">CNC Machining</div><div class="sk-g">FABRICATION</div></div>
+      <div class="sk-card"><div class="sk-box o"><img class="flag" src="https://flagcdn.com/w160/ca.png" alt="Transport Canada"></div><div class="sk-n">Flight Operations</div><div class="sk-g">PPL &middot; TRANSPORT CANADA</div></div>
+      <div class="sk-card"><div class="sk-box k"><img src="https://img.icons8.com/color/96/radio-tower.png" alt="ATC Radio"></div><div class="sk-n">ATC Radio</div><div class="sk-g">ROC-A &middot; NAV CANADA</div></div>
+      <div class="sk-card"><div class="sk-box i"><img src="https://img.icons8.com/color/96/compass--v1.png" alt="Flight Planning"></div><div class="sk-n">Flight Planning</div><div class="sk-g">VFR &middot; FOREFLIGHT</div></div>
+      <div class="sk-card"><div class="sk-box k"><img src="https://img.icons8.com/color/96/partly-cloudy-day--v1.png" alt="Meteorology"></div><div class="sk-n">Meteorology</div><div class="sk-g">METAR / TAF &middot; CFPS</div></div>
+    </div>
+  </section>
+
+  <!-- 3. CREDENTIALS -->
   <section id="credentials">
     <div class="an">
       <div class="eyebrow">&mdash; Certifications</div>
@@ -180,7 +202,7 @@
     </div>
   </section>
 
-  <!-- EXPERIENCE & EDUCATION -->
+  <!-- 4. EXPERIENCE -->
   <section id="experience">
     <div class="an">
       <div class="eyebrow">&mdash; Experience</div>
@@ -223,29 +245,7 @@
     </div>
   </section>
 
-  <!-- TECHNICAL SKILLS -->
-  <section id="skills" class="an">
-    <div class="tk-head">
-      <div><div class="eyebrow">&mdash; Toolkit</div><h2 class="sec-title" style="margin-bottom:0">Technical skills</h2></div>
-      <div class="tk-sub">Auto-scrolling &middot; Hover to pause</div>
-    </div>
-    <div class="marquee" id="r">
-      <div class="sk-card"><div class="sk-box i"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" alt="C++"></div><div class="sk-n">C / C++</div><div class="sk-g">PROGRAMMING</div></div>
-      <div class="sk-card"><div class="sk-box o"><img src="https://img.icons8.com/color/96/solidworks.png" alt="SolidWorks"></div><div class="sk-n">SolidWorks</div><div class="sk-g">3D CAD</div></div>
-      <div class="sk-card"><div class="sk-box p"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fusion/fusion-original.svg" alt="Fusion"></div><div class="sk-n">Fusion</div><div class="sk-g">CAD / CAM</div></div>
-      <div class="sk-card"><div class="sk-box o"><img src="https://img.icons8.com/color/96/autocad.png" alt="AutoCAD"></div><div class="sk-n">AutoCAD</div><div class="sk-g">2D DRAFTING</div></div>
-      <div class="sk-card"><div class="sk-box a"><img src="https://cdn.simpleicons.org/ansys/FFB71B" alt="ANSYS"></div><div class="sk-n">ANSYS</div><div class="sk-g">FEA &amp; CFD</div></div>
-      <div class="sk-card"><div class="sk-box d"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub"></div><div class="sk-n">GitHub</div><div class="sk-g">VERSION CONTROL</div></div>
-      <div class="sk-card"><div class="sk-box g"><img src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/bambu-lab.svg" alt="Bambu Lab"></div><div class="sk-n">3D Printing</div><div class="sk-g">BAMBU LAB</div></div>
-      <div class="sk-card"><div class="sk-box a"><img src="https://img.icons8.com/color/96/cnc-machine.png" alt="CNC"></div><div class="sk-n">CNC Machining</div><div class="sk-g">FABRICATION</div></div>
-      <div class="sk-card"><div class="sk-box o"><img class="flag" src="https://flagcdn.com/w160/ca.png" alt="Transport Canada"></div><div class="sk-n">Flight Operations</div><div class="sk-g">PPL &middot; TRANSPORT CANADA</div></div>
-      <div class="sk-card"><div class="sk-box k"><img src="https://img.icons8.com/color/96/radio-tower.png" alt="ATC Radio"></div><div class="sk-n">ATC Radio</div><div class="sk-g">ROC-A &middot; NAV CANADA</div></div>
-      <div class="sk-card"><div class="sk-box i"><img src="https://img.icons8.com/color/96/compass--v1.png" alt="Flight Planning"></div><div class="sk-n">Flight Planning</div><div class="sk-g">VFR &middot; FOREFLIGHT</div></div>
-      <div class="sk-card"><div class="sk-box k"><img src="https://img.icons8.com/color/96/partly-cloudy-day--v1.png" alt="Meteorology"></div><div class="sk-n">Meteorology</div><div class="sk-g">METAR / TAF &middot; CFPS</div></div>
-    </div>
-  </section>
-
-  <!-- SELECTED WORK -->
+  <!-- 5. SELECTED WORK -->
   <section id="work">
     <div class="an">
       <div class="eyebrow">&mdash; Projects</div>
