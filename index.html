@@ -62,6 +62,8 @@
   .sk-box{height:70px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
   .sk-box img,.sk-box svg{width:38px;height:38px;object-fit:contain;border-radius:6px}
   .sk-box img.flag{width:54px;height:36px;border-radius:4px;box-shadow:0 1px 4px rgba(0,0,0,.1)}
+  .sk-box svg.nav-badge{width:44px;height:44px;border-radius:10px}
+  .sk-box svg.ff-lockup{width:136px;height:42px}
   .p{background:#FDF0EA}.d{background:#F2F1EE}.i{background:#ECEFFC}.a{background:#FCF2DF}.g{background:#E7F5EC}.k{background:#E8F3FA}.o{background:#FCECEF}
   .sk-n{font-size:15px;font-weight:600;color:#111827;margin-bottom:5px}
   .sk-g{font-size:10.5px;font-weight:600;letter-spacing:.12em;color:#9CA3AF;line-height:1.3}
@@ -168,18 +170,30 @@
       <div class="sk-card"><div class="sk-box a"><img src="https://img.icons8.com/color/96/cnc-machine.png" alt="CNC"></div><div class="sk-n">CNC Machining</div><div class="sk-g">FABRICATION</div></div>
       <div class="sk-card"><div class="sk-box o"><img class="flag" src="https://flagcdn.com/w160/ca.png" alt="Transport Canada"></div><div class="sk-n">Flight Operations</div><div class="sk-g">PPL &middot; TRANSPORT CANADA</div></div>
       <div class="sk-card"><div class="sk-box k">
-        <svg viewBox="0 0 120 44" style="width:78px;height:30px" aria-label="NAV CANADA">
-          <rect width="120" height="44" rx="7" fill="#003366"/>
-          <path d="M14 27 Q36 14 58 27 T106 23" fill="none" stroke="#00AEEF" stroke-width="2.5" stroke-linecap="round"/>
-          <text x="60" y="21" text-anchor="middle" fill="#FFFFFF" font-family="Inter,sans-serif" font-weight="800" font-size="11.5" letter-spacing="0.06em">NAV CANADA</text>
+        <svg class="nav-badge" viewBox="0 0 88 88" aria-label="NAV CANADA">
+          <rect width="88" height="88" rx="18" fill="#FFFFFF"/>
+          <text x="44" y="38" text-anchor="middle" fill="#0066B2" font-family="'Inter',sans-serif" font-weight="900" font-size="18.5" letter-spacing="0.03em">NAV</text>
+          <text x="44" y="53" text-anchor="middle" fill="#0066B2" font-family="'Inter',sans-serif" font-weight="600" font-size="11.5" letter-spacing="0.05em">CANADA</text>
+          <path d="M16 64 Q44 56 72 64 Q44 60 16 64 Z" fill="#0066B2"/>
         </svg>
       </div><div class="sk-n">ATC Radio</div><div class="sk-g">ROC-A &middot; NAV CANADA</div></div>
-      <div class="sk-card"><div class="sk-box i"><img src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/foreflight.svg" alt="ForeFlight"></div><div class="sk-n">Flight Planning</div><div class="sk-g">VFR &middot; FOREFLIGHT</div></div>
+      <div class="sk-card"><div class="sk-box i">
+        <svg class="ff-lockup" viewBox="0 0 260 76" aria-label="ForeFlight A Boeing Company">
+          <g transform="translate(38,38)">
+            <circle cx="0" cy="0" r="15" fill="none" stroke="#1F2937" stroke-width="2.4"/>
+            <path d="M0-29 L3.5-16 L-3.5-16 Z M0 29 L3.5 16 L-3.5 16 Z M-29 0 L-16 3.5 L-16-3.5 Z M29 0 L16 3.5 L16-3.5 Z M-20.5-20.5 L-9-13.5 L-13.5-9 Z M20.5-20.5 L13.5-9 L9-13.5 Z M-20.5 20.5 L-13.5 9 L-9 13.5 Z M20.5 20.5 L9 13.5 L13.5 9 Z M-11-26.5 L-3-15.5 L-8.5-14 Z M11-26.5 L8.5-14 L3-15.5 Z M-11 26.5 L-8.5 14 L-3 15.5 Z M11 26.5 L3 15.5 L8.5 14 Z M-26.5-11 L-14-8.5 L-15.5-3 Z M26.5-11 L15.5-3 L14-8.5 Z M-26.5 11 L-15.5 3 L-14 8.5 Z M26.5 11 L14 8.5 L15.5 3 Z" fill="#1F2937"/>
+            <path d="M0-11 L1.6-3 L10 1.5 L10 3.5 L1.6 1.5 L1.6 7.5 L4.5 9.5 L4.5 11 L0 9.8 L-4.5 11 L-4.5 9.5 L-1.6 7.5 L-1.6 1.5 L-10 3.5 L-10 1.5 L-1.6-3 Z" fill="#1F2937"/>
+          </g>
+          <text x="80" y="37" fill="#1F2937" font-family="'Inter',sans-serif" font-weight="700" font-size="29" letter-spacing="-0.02em">ForeFlight</text>
+          <text x="82" y="57" fill="#374151" font-family="'Inter',sans-serif" font-weight="400" font-size="13.5" letter-spacing="0.01em">A Boeing Company</text>
+        </svg>
+      </div><div class="sk-n">Flight Planning</div><div class="sk-g">VFR &middot; FOREFLIGHT</div></div>
       <div class="sk-card"><div class="sk-box k">
-        <svg viewBox="0 0 120 44" style="width:78px;height:30px" aria-label="NAV CANADA CFPS">
-          <rect width="120" height="44" rx="7" fill="#003366"/>
-          <path d="M14 27 Q36 14 58 27 T106 23" fill="none" stroke="#00AEEF" stroke-width="2.5" stroke-linecap="round"/>
-          <text x="60" y="21" text-anchor="middle" fill="#FFFFFF" font-family="Inter,sans-serif" font-weight="800" font-size="11.5" letter-spacing="0.06em">NAV CANADA</text>
+        <svg class="nav-badge" viewBox="0 0 88 88" aria-label="NAV CANADA CFPS">
+          <rect width="88" height="88" rx="18" fill="#FFFFFF"/>
+          <text x="44" y="38" text-anchor="middle" fill="#0066B2" font-family="'Inter',sans-serif" font-weight="900" font-size="18.5" letter-spacing="0.03em">NAV</text>
+          <text x="44" y="53" text-anchor="middle" fill="#0066B2" font-family="'Inter',sans-serif" font-weight="600" font-size="11.5" letter-spacing="0.05em">CANADA</text>
+          <path d="M16 64 Q44 56 72 64 Q44 60 16 64 Z" fill="#0066B2"/>
         </svg>
       </div><div class="sk-n">Meteorology</div><div class="sk-g">METAR / TAF &middot; CFPS</div></div>
     </div>
