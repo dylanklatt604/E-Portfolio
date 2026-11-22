@@ -81,8 +81,8 @@
   .story-list li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:#206A94}
 
   .media-col{display:flex;flex-direction:column;gap:18px}
-  .media-col img{width:100%;object-fit:cover;border-radius:16px;border:1px solid #E5E7EB;background:#F3F4F6;box-shadow:0 8px 22px rgba(0,0,0,.05);display:block;transition:transform .3s ease}
-  .media-col img:hover{transform:translateY(-3px)}
+  .media-col img,.media-col video{width:100%;object-fit:cover;border-radius:16px;border:1px solid #E5E7EB;background:#F3F4F6;box-shadow:0 8px 22px rgba(0,0,0,.05);display:block;transition:transform .3s ease}
+  .media-col img:hover,.media-col video:hover{transform:translateY(-3px)}
 
   /* Baseball Exact Balanced Heights: Left (245 + 205 = 450px) == Right (285 + 165 = 450px) */
   .bb-top-left{height:245px;object-position:center 18%}
@@ -90,7 +90,10 @@
   .bb-top-right{height:285px;object-position:65% 22%}
   .bb-scoreboard{height:165px;object-fit:fill;background:#111827}
 
-  /* 2-photo sections (Flight, Golf, Engineering) */
+  /* Flight Balanced Dual-Portrait Media (f1.jpg + f2.mov takeoff video) */
+  .flight-media{height:440px;object-position:center 25%}
+
+  /* Golf & Engineering */
   .img-portrait-solo{height:380px;object-position:center 18%}
   .img-land-solo{height:250px;object-position:center center}
 
@@ -184,7 +187,7 @@
     </div>
   </section>
 
-  <!-- 2. FLIGHT -->
+  <!-- 2. FLIGHT (f1.jpg ramp photo + f2.mov cockpit takeoff video) -->
   <section id="flight" class="story-sec">
     <div class="story-layout">
       <div class="story-text an">
@@ -199,10 +202,10 @@
         </ul>
       </div>
       <div class="media-col an">
-        <img class="img-portrait-solo" src="./photos/f1.jpg" alt="Flight photo 1" onerror="this.outerHTML='<div class=&quot;photo-placeholder&quot; style=&quot;height:380px&quot;>photos/f1.jpg</div>'">
+        <img class="flight-media" src="./photos/f1.jpg" alt="Dylan Klatt beside Cessna 152 on the ramp">
       </div>
       <div class="media-col an">
-        <img class="img-land-solo" src="./photos/f2.jpg" alt="Flight photo 2" onerror="this.outerHTML='<div class=&quot;photo-placeholder&quot; style=&quot;height:250px&quot;>photos/f2.jpg</div>'">
+        <video class="flight-media" src="./photos/f2.mov" autoplay loop muted playsinline controls aria-label="Cessna 152 cockpit takeoff roll"></video>
       </div>
     </div>
   </section>
