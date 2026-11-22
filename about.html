@@ -37,7 +37,7 @@
   .an{opacity:0;transform:translateY(22px);transition:opacity .65s ease-out,transform .65s ease-out}
   .an.v{opacity:1;transform:none}
 
-  /* TOP: 4 Worlds Grid */
+  /* TOP: 4 Worlds Grid (3:4 portrait aspect ratio matches bb1, hero1, g1, hero2) */
   .worlds-hero{padding-top:56px;padding-bottom:76px;border-bottom:1px solid #E5E7EB}
   .worlds-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
   @media(max-width:900px){.worlds-grid{grid-template-columns:repeat(2,1fr)}}
@@ -46,34 +46,45 @@
   .world-card{background:#FFF;border:1px solid #E5E7EB;border-radius:18px;padding:14px 14px 18px;display:flex;flex-direction:column;align-items:center;gap:14px;transition:.25s;box-shadow:0 4px 16px rgba(0,0,0,.03)}
   .world-card:hover{border-color:#111827;transform:translateY(-3px);box-shadow:0 10px 26px rgba(0,0,0,.06)}
   .world-img-wrap{width:100%;aspect-ratio:3/4;border-radius:12px;overflow:hidden;background:#F3F4F6;border:1px solid #F3F4F6}
-  .world-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease}
+  .world-img-wrap img{width:100%;height:100%;object-fit:cover;object-position:center 15%;display:block;transition:transform .35s ease}
   .world-card:hover .world-img-wrap img{transform:scale(1.03)}
   .world-card .btn{width:100%}
 
-  /* Asymmetric 3-Column Story Layout (~38% Text | ~31% Col 1 | ~31% Col 2) */
+  /* Asymmetric 3-Column Story Layout (~36% Text | ~32% Col 1 | ~32% Col 2) */
   .story-sec{border-bottom:1px solid #E5E7EB;padding:84px 0}
   .story-sec:last-of-type{border-bottom:none}
-  .story-layout{display:grid;grid-template-columns:1.15fr 0.925fr 0.925fr;gap:28px;align-items:start}
+  .story-layout{display:grid;grid-template-columns:1.08fr 0.96fr 0.96fr;gap:26px;align-items:start}
   @media(max-width:940px){
-    .story-layout{grid-template-columns:1fr 1fr;gap:24px}
+    .story-layout{grid-template-columns:1fr 1fr;gap:22px}
     .story-text{grid-column:1 / -1;margin-bottom:8px}
   }
   @media(max-width:560px){
     .story-layout{grid-template-columns:1fr}
   }
 
-  .story-text{padding-right:16px}
+  .story-text{padding-right:14px}
   .story-lead{font-size:16px;color:#374151;line-height:1.65;margin:0 0 22px}
   .story-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:13px}
   .story-list li{position:relative;padding-left:20px;font-size:14.5px;color:#4B5563;line-height:1.55}
   .story-list li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:#206A94}
 
-  /* Staggered Asymmetric Photo Columns (Tall + Landscape per column for balanced symmetry) */
+  /* Staggered Photo Columns Matched to Actual Photo Aspect Ratios */
   .media-col{display:flex;flex-direction:column;gap:20px}
   .media-col img{width:100%;object-fit:cover;border-radius:16px;border:1px solid #E5E7EB;background:#F3F4F6;box-shadow:0 8px 22px rgba(0,0,0,.05);display:block;transition:transform .3s ease}
   .media-col img:hover{transform:translateY(-3px)}
-  .img-tall{height:300px}
-  .img-wide{height:210px}
+
+  /* Baseball 4-photo balanced heights: Col 1 (360 + 200 = 560px) == Col 2 (280 + 260 = 540px + 20px gap = 560px) */
+  .img-portrait-lg{height:360px;object-position:center 18%}
+  .img-land-sm{height:200px;object-position:center center}
+  .img-land-lg{height:280px;object-position:center 25%}
+  .img-banner{height:260px;object-position:center center}
+
+  /* Single-row / 2-photo sections (Flight, Golf, Engineering) */
+  .img-portrait-solo{height:380px;object-position:center 18%}
+  .img-land-solo{height:250px;object-position:center center}
+
+  /* Clean placeholder styling for photos not yet uploaded */
+  .photo-placeholder{width:100%;border-radius:16px;border:1px dashed #D1D5DB;background:#F3F4F6;color:#9CA3AF;font-size:12.5px;font-weight:600;display:flex;align-items:center;justify-content:center}
 
   /* Footer */
   footer{border-top:1px solid #E5E7EB;padding:36px 24px;text-align:center;font-size:13px;color:#6B7280;background:#FFF;margin-top:20px}
@@ -136,7 +147,7 @@
     </div>
   </section>
 
-  <!-- 1. BASEBALL -->
+  <!-- 1. BASEBALL (bb2 portrait + bb4 landscape | bb3 landscape + bb5.jpeg scoreboard) -->
   <section id="baseball" class="story-sec">
     <div class="story-layout">
       <div class="story-text an">
@@ -152,12 +163,12 @@
         </ul>
       </div>
       <div class="media-col an">
-        <img class="img-tall" src="./photos/bb2.jpg" alt="Baseball tournament action">
-        <img class="img-wide" src="./photos/bb3.jpg" alt="National team representation">
+        <img class="img-portrait-lg" src="./photos/bb2.jpg" alt="U18 Filipino National Team">
+        <img class="img-land-sm" src="./photos/bb4.jpg" alt="Team Canada base running at loanDepot park">
       </div>
       <div class="media-col an">
-        <img class="img-wide" src="./photos/bb4.jpg" alt="Hard 90 to Home filming">
-        <img class="img-tall" src="./photos/bb5.jpg" alt="Coaching youth athletes">
+        <img class="img-land-lg" src="./photos/bb3.jpg" alt="Catcher and pitcher mound visit">
+        <img class="img-banner" src="./photos/bb5.jpeg" alt="Power Showcase scoreboard at loanDepot park">
       </div>
     </div>
   </section>
@@ -177,10 +188,10 @@
         </ul>
       </div>
       <div class="media-col an">
-        <img class="img-tall" src="./photos/f1.jpg" alt="Cockpit and pre-flight inspection">
+        <img class="img-portrait-solo" src="./photos/f1.jpg" alt="Flight photo 1" onerror="this.outerHTML='<div class=&quot;photo-placeholder&quot; style=&quot;height:380px&quot;>photos/f1.jpg</div>'">
       </div>
       <div class="media-col an">
-        <img class="img-wide" src="./photos/f2.jpg" alt="Aerial view over British Columbia">
+        <img class="img-land-solo" src="./photos/f2.jpg" alt="Flight photo 2" onerror="this.outerHTML='<div class=&quot;photo-placeholder&quot; style=&quot;height:250px&quot;>photos/f2.jpg</div>'">
       </div>
     </div>
   </section>
@@ -198,10 +209,10 @@
         </ul>
       </div>
       <div class="media-col an">
-        <img class="img-tall" src="./photos/g2.jpg" alt="Golf course and swing">
+        <img class="img-portrait-solo" src="./photos/g2.jpg" alt="Golf photo 2" onerror="this.outerHTML='<div class=&quot;photo-placeholder&quot; style=&quot;height:380px&quot;>photos/g2.jpg</div>'">
       </div>
       <div class="media-col an">
-        <img class="img-wide" src="./photos/g3.jpg" alt="Practice range session">
+        <img class="img-land-solo" src="./photos/g3.jpg" alt="Golf photo 3" onerror="this.outerHTML='<div class=&quot;photo-placeholder&quot; style=&quot;height:250px&quot;>photos/g3.jpg</div>'">
       </div>
     </div>
   </section>
@@ -221,10 +232,10 @@
         </ul>
       </div>
       <div class="media-col an">
-        <img class="img-tall" src="./photos/e1.jpg" alt="Composite layup and fabrication">
+        <img class="img-portrait-solo" src="./photos/e1.jpg" alt="Composite layup work in UBCO Aerospace lab">
       </div>
       <div class="media-col an">
-        <img class="img-wide" src="./photos/e2.jpg" alt="CAD modeling and simulation">
+        <img class="img-land-solo" src="./photos/e2.jpg" alt="Engineering photo 2" onerror="this.outerHTML='<div class=&quot;photo-placeholder&quot; style=&quot;height:250px&quot;>photos/e2.jpg</div>'">
       </div>
     </div>
   </section>
