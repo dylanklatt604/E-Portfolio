@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About Me · Dylan Klatt</title>
+<title>Dylan Klatt · Mechanical & Aerospace Engineering</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{margin:0;background:#FAFAFA;color:#111827;font-family:'Inter',-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
-
-  /* Sticky Top Nav (matches index.html) */
+  
+  /* Sticky Top Nav (matches about.html) */
   nav{position:sticky;top:0;z-index:50;background:rgba(250,250,250,0.92);backdrop-filter:blur(12px);border-bottom:1px solid #EBECEF}
   .nav-in{max-width:1040px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between}
   .brand{font-weight:700;font-size:17px;color:#111827;text-decoration:none;letter-spacing:-0.02em}
@@ -22,53 +22,95 @@
   .nav-cta:hover{background:#374151;transform:translateY(-1px)}
   @media(max-width:720px){.nav-links a.hide-m{display:none}}
 
-  /* Layout Container (matches Google Sites wide canvas proportions) */
-  .wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+  /* Layout Container */
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+  section{padding:72px 0}
   .eyebrow{font-size:11px;font-weight:700;letter-spacing:.14em;color:#9CA3AF;margin-bottom:8px;text-transform:uppercase}
+  .sec-title{font-size:32px;font-weight:700;letter-spacing:-.02em;margin:0 0 28px;color:#111827}
 
-  /* Scroll Reveal */
-  .an{opacity:0;transform:translateY(20px);transition:opacity .6s ease-out,transform .6s ease-out}
+  /* Scroll Reveal Animation */
+  .an{opacity:0;transform:translateY(22px);transition:opacity .65s ease-out,transform .65s ease-out}
   .an.v{opacity:1;transform:none}
 
-  /* Section 1: Centered Heading ("4 worlds, one story") */
-  .worlds-header{text-align:center;padding:64px 0 36px}
-  .worlds-title{font-family:'Lato',sans-serif;font-size:clamp(36px,4.5vw,52px);font-weight:700;color:#206A94;margin:0;letter-spacing:-0.5px}
+  /* 1. Hero / Intro Section */
+  .hero{display:grid;grid-template-columns:1.15fr 0.85fr;gap:48px;align-items:center;padding-top:64px;padding-bottom:80px}
+  @media(max-width:860px){.hero{grid-template-columns:1fr;gap:40px;padding-top:44px}}
+  .headline{font-family:'Lato',sans-serif;font-size:clamp(44px,6vw,68px);font-weight:700;color:#206A94;margin:0 0 26px;letter-spacing:-0.5px;min-height:1.2em}
+  .bio{font-family:'Lato',sans-serif;font-size:clamp(18px,2.1vw,22px);font-weight:400;line-height:1.6;color:#1F1F1F}
+  .bio-line{display:block;margin-bottom:16px}
+  .bio-line:last-child{margin-bottom:0}
+  .cursor{display:inline-block;width:2px;margin-left:3px;background:#206A94;animation:blink .8s infinite}
+  @keyframes blink{0%,50%{opacity:1}51%,100%{opacity:0}}
 
-  /* Section 2: 4 Equal Columns + Button Under Each Image */
-  .worlds-row{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding-bottom:76px;border-bottom:1px solid #E5E7EB}
-  @media(max-width:860px){.worlds-row{grid-template-columns:repeat(2,1fr)}}
-  @media(max-width:480px){.worlds-row{grid-template-columns:1fr}}
+  /* 3-Photo Bento Collage */
+  .collage{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .collage img{width:100%;object-fit:cover;border-radius:16px;border:1px solid #E5E7EB;background:#E5E7EB;box-shadow:0 8px 24px rgba(0,0,0,.05);transition:transform .3s ease}
+  .collage img:hover{transform:translateY(-3px)}
+  .collage .tall{grid-row:span 2;height:414px;object-position:center 20%}
+  .collage .sq{height:200px;object-position:center 25%}
 
-  .world-col{display:flex;flex-direction:column;align-items:center;gap:16px}
-  .world-photo{width:100%;aspect-ratio:3/4;border-radius:14px;overflow:hidden;border:1px solid #E5E7EB;background:#E5E7EB;box-shadow:0 6px 20px rgba(0,0,0,.05)}
-  .world-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease}
-  .world-col:hover .world-photo img{transform:scale(1.03)}
+  /* 2. Infinite Auto-Scrolling Technical Skills + Circular Arrow Controls */
+  .tk-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:20px}
+  .tk-ctrls{display:flex;gap:10px}
+  .tk-btn{width:38px;height:38px;border-radius:50%;border:1px solid #E5E7EB;background:#FFF;color:#111827;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s,border-color .2s,transform .15s;padding:0}
+  .tk-btn:hover{background:#F3F4F6;border-color:#9CA3AF}
+  .tk-btn:active{transform:scale(.94)}
+  .marquee{display:flex;gap:16px;overflow-x:auto;padding:6px 2px 16px;scrollbar-width:none}
+  .marquee::-webkit-scrollbar{display:none}
+  .sk-card{flex:0 0 190px;background:#FFF;border:1.5px solid #EBECEF;border-radius:16px;padding:14px 14px 18px;text-align:center;transition:.2s}
+  .sk-card:hover{border-color:#111827;transform:translateY(-2px)}
+  .sk-box{height:70px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;overflow:hidden}
+  .sk-box > img{width:38px;height:38px;object-fit:contain;border-radius:6px}
+  .sk-box > img.flag{width:54px;height:36px;border-radius:4px;box-shadow:0 1px 4px rgba(0,0,0,.1)}
+  .sk-box > svg.nav-badge{width:46px;height:46px;border-radius:10px;flex-shrink:0}
+  .sk-box > svg.ff-lockup{width:148px;height:48px;flex-shrink:0}
+  .p{background:#FDF0EA}.d{background:#F2F1EE}.i{background:#ECEFFC}.a{background:#FCF2DF}.g{background:#E7F5EC}.k{background:#E8F3FA}.o{background:#FCECEF}
+  .sk-n{font-size:15px;font-weight:600;color:#111827;margin-bottom:5px}
+  .sk-g{font-size:10.5px;font-weight:600;letter-spacing:.12em;color:#9CA3AF;line-height:1.3}
 
-  /* Pill Buttons matching dylanklatt.com .btn */
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:9px 22px;border:1px solid #D1D5DB;border-radius:999px;font-size:13.5px;font-weight:600;color:#111827;text-decoration:none;background:#FFF;transition:.2s;min-width:140px}
-  .btn:hover{border-color:#111827;background:#F9FAFB;transform:translateY(-1px)}
+  /* 3. Credentials Grid */
+  .cred-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:18px}
+  .cred-card{flex:0 1 calc(50% - 9px);min-width:320px;display:flex;align-items:center;gap:22px;background:#FFF;border:1px solid #E5E7EB;border-radius:16px;padding:24px 26px;transition:.2s}
+  .cred-card:hover{border-color:#111827;box-shadow:0 6px 18px rgba(0,0,0,.04)}
+  .cred-logo{flex:0 0 84px;width:84px;height:84px;display:flex;align-items:center;justify-content:center;background:#F9FAFB;border-radius:12px;border:1px solid #F3F4F6}
+  .cred-logo img,.cred-logo svg{max-width:68px;max-height:58px;object-fit:contain;border-radius:4px}
+  .cred-info{display:flex;flex-direction:column;align-items:flex-start}
+  .cred-t{font-size:17px;font-weight:700;color:#111827;line-height:1.3;margin-bottom:5px}
+  .cred-d{font-size:13.5px;color:#6B7280;line-height:1.45;margin-bottom:16px}
+  .btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border:1px solid #D1D5DB;border-radius:999px;font-size:13px;font-weight:600;color:#111827;text-decoration:none;background:#FFF;transition:.2s}
+  .btn:hover{border-color:#111827;background:#F9FAFB}
 
-  /* Story Sections (matching Google Sites 3-column & split sizing) */
-  .story-sec{padding:76px 0;border-bottom:1px solid #E5E7EB}
-  .story-sec:last-of-type{border-bottom:none}
-  .sec-title{font-family:'Lato',sans-serif;font-size:34px;font-weight:700;letter-spacing:-.02em;margin:0 0 16px;color:#111827}
-  .story-lead{font-size:16px;color:#374151;line-height:1.65;margin:0 0 20px}
-  .story-list{padding-left:20px;margin:0;display:flex;flex-direction:column;gap:10px}
-  .story-list li{font-size:14.5px;color:#4B5563;line-height:1.55}
+  /* 4. Experience & Education */
+  .edu{display:flex;align-items:center;gap:20px;border:1px solid #E5E7EB;border-radius:16px;padding:22px 26px;background:#FFF;margin-bottom:24px}
+  .ub{width:56px;height:56px;border-radius:12px;background:#F9FAFB;border:1px solid #F3F4F6;display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden}
+  .ub img{width:42px;height:46px;object-fit:contain}
+  .et{font-size:20px;font-weight:700;margin:2px 0 4px}
+  .es{font-size:13.5px;color:#4B5563}
+  .row{display:flex;align-items:stretch;justify-content:space-between;gap:16px;padding:0 8px;border-top:1px solid #E5E7EB}
+  .row:last-child{border-bottom:1px solid #E5E7EB}
+  .dt{flex:0 0 140px;font-size:12.5px;color:#9CA3AF;padding:26px 0}
+  .tl{position:relative;width:12px;display:flex;justify-content:center;flex-shrink:0}
+  .tl:before{content:"";position:absolute;top:0;bottom:0;left:5.5px;width:1px;background:#E5E7EB}
+  .dot{position:relative;z-index:1;width:8px;height:8px;border-radius:50%;background:#111827;margin-top:30px}
+  .mid{flex:1;padding:24px 0}
+  .rt{font-size:16px;font-weight:700;margin-bottom:4px}
+  .co{font-size:13px;font-weight:600;color:#4B5563;margin-bottom:8px}
+  .ds{font-size:13.5px;color:#6B7280;line-height:1.55;max-width:560px}
+  .pill{align-self:flex-start;margin-top:24px;flex-shrink:0;font-size:12px;font-weight:600;color:#4B5563;border:1px solid #E5E7EB;border-radius:999px;padding:6px 14px;background:#FFF}
+  @media(max-width:640px){.row{flex-wrap:wrap}.dt{flex:0 0 100%;padding:20px 0 0}.tl{display:none}.mid{padding:8px 0 20px}.pill{margin-top:0;margin-bottom:20px}}
 
-  /* Baseball 3-Column Layout (Text Left | 2 Stacked Photos Mid | 2 Stacked Photos Right) */
-  .three-col{display:grid;grid-template-columns:1.1fr 0.95fr 0.95fr;gap:24px;align-items:start}
-  @media(max-width:900px){.three-col{grid-template-columns:1fr}}
-  .img-stack{display:flex;flex-direction:column;gap:18px}
-  .img-stack img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px;border:1px solid #E5E7EB;background:#E5E7EB;box-shadow:0 6px 18px rgba(0,0,0,.04);display:block}
-
-  /* 2-Column Layout for Flight, Golf & Engineering */
-  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
-  @media(max-width:860px){.two-col{grid-template-columns:1fr}}
-  .feature-img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px;border:1px solid #E5E7EB;background:#E5E7EB;box-shadow:0 6px 20px rgba(0,0,0,.05);display:block}
+  /* 5. Selected Work Grid */
+  .work-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px}
+  .work-card{background:#FFF;border:1px solid #E5E7EB;border-radius:16px;overflow:hidden;transition:.2s}
+  .work-card:hover{border-color:#111827;transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.05)}
+  .work-thumb{height:180px;background:#F3F4F6;display:flex;align-items:center;justify-content:center;color:#9CA3AF;font-size:13px;font-weight:600;border-bottom:1px solid #E5E7EB}
+  .work-body{padding:20px 22px}
+  .work-tag{font-size:11px;font-weight:700;letter-spacing:.1em;color:#206A94;text-transform:uppercase;margin-bottom:6px}
+  .work-t{font-size:17px;font-weight:700;margin-bottom:6px}
+  .work-d{font-size:13.5px;color:#6B7280;line-height:1.5}
 
   /* Footer */
-  footer{border-top:1px solid #E5E7EB;padding:36px 24px;text-align:center;font-size:13px;color:#6B7280;background:#FFF;margin-top:20px}
+  footer{border-top:1px solid #E5E7EB;padding:36px 24px;text-align:center;font-size:13px;color:#6B7280;background:#FFF;margin-top:40px}
   footer a{color:#111827;font-weight:600;text-decoration:none}
 </style>
 </head>
@@ -78,146 +120,281 @@
   <div class="nav-in">
     <a class="brand" href="index.html">Dylan Klatt</a>
     <div class="nav-links">
-      <a class="hide-m" href="index.html#skills">Skills</a>
-      <a class="hide-m" href="index.html#credentials">Credentials</a>
-      <a class="hide-m" href="index.html#experience">Experience</a>
-      <a class="hide-m" href="index.html#work">Projects</a>
-      <a class="active" href="about.html">About me</a>
+      <a class="hide-m" href="#skills">Skills</a>
+      <a class="hide-m" href="#credentials">Credentials</a>
+      <a class="hide-m" href="#experience">Experience</a>
+      <a class="hide-m" href="#work">Projects</a>
+      <a class="hide-m" href="about.html">About me</a>
     </div>
     <a class="nav-cta" href="https://www.linkedin.com/in/dylan-klatt-499aa4345" target="_blank" rel="noopener">LinkedIn &rarr;</a>
   </div>
 </nav>
 
 <div class="wrap">
-  <!-- 1. CENTERED TITLE -->
-  <div class="worlds-header an">
-    <div class="eyebrow">&mdash; About Me</div>
-    <h1 class="worlds-title">4 worlds, one story</h1>
-  </div>
-
-  <!-- 2. FOUR COLUMNS WITH BUTTONS UNDERNEATH -->
-  <div class="worlds-row">
-    <div class="world-col an">
-      <div class="world-photo">
-        <img src="./world-baseball.jpg" alt="Baseball">
+  <!-- 1. INTRO / HERO -->
+  <section class="hero">
+    <div>
+      <h1 class="headline"><span id="typed-headline"></span><span class="cursor" id="cursor-1">&nbsp;</span></h1>
+      <div class="bio">
+        <span class="bio-line">Mechanical engineering student @ UBC.</span>
+        <span class="bio-line">Having experienced flight, I walk with my eyes turned skyward, for there I have been, and there I long to return.</span>
+        <span class="bio-line">Currently interested in composites, aerostructures, and computational fluid dynamics.</span>
       </div>
-      <a class="btn" href="#baseball">Baseball</a>
     </div>
-
-    <div class="world-col an">
-      <div class="world-photo">
-        <img src="./hero1.jpg" alt="Flight">
-      </div>
-      <a class="btn" href="#flight">Flight</a>
+    <div class="collage an">
+      <img class="tall" src="./hero1.jpg" alt="Dylan Klatt with Cessna 152">
+      <img class="sq" src="./hero2.jpg" alt="Composite rocket nose cone fabrication">
+      <img class="sq" src="./hero3.jpg" alt="Golf driving range">
     </div>
+  </section>
 
-    <div class="world-col an">
-      <div class="world-photo">
-        <img src="./hero3.jpg" alt="Golf">
+  <!-- 2. SKILLS -->
+  <section id="skills" class="an">
+    <div class="tk-head">
+      <div><div class="eyebrow">&mdash; Toolkit</div><h2 class="sec-title" style="margin-bottom:0">Technical skills</h2></div>
+      <div class="tk-ctrls">
+        <button class="tk-btn" id="tk-prev" type="button" aria-label="Scroll left">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="tk-btn" id="tk-next" type="button" aria-label="Scroll right">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
       </div>
-      <a class="btn" href="#golf">Golf</a>
     </div>
-
-    <div class="world-col an">
-      <div class="world-photo">
-        <img src="./hero2.jpg" alt="Engineering">
-      </div>
-      <a class="btn" href="#engineering">Engineering</a>
+    <div class="marquee" id="r">
+      <div class="sk-card"><div class="sk-box i"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" alt="C++"></div><div class="sk-n">C / C++</div><div class="sk-g">PROGRAMMING</div></div>
+      <div class="sk-card"><div class="sk-box o"><img src="https://img.icons8.com/color/96/solidworks.png" alt="SolidWorks"></div><div class="sk-n">SolidWorks</div><div class="sk-g">3D CAD</div></div>
+      <div class="sk-card"><div class="sk-box p"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fusion/fusion-original.svg" alt="Fusion"></div><div class="sk-n">Fusion</div><div class="sk-g">CAD / CAM</div></div>
+      <div class="sk-card"><div class="sk-box o"><img src="https://img.icons8.com/color/96/autocad.png" alt="AutoCAD"></div><div class="sk-n">AutoCAD</div><div class="sk-g">2D DRAFTING</div></div>
+      <div class="sk-card"><div class="sk-box a"><img src="https://cdn.simpleicons.org/ansys/FFB71B" alt="ANSYS"></div><div class="sk-n">ANSYS</div><div class="sk-g">FEA &amp; CFD</div></div>
+      <div class="sk-card"><div class="sk-box d"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub"></div><div class="sk-n">GitHub</div><div class="sk-g">VERSION CONTROL</div></div>
+      <div class="sk-card"><div class="sk-box g"><img src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/bambu-lab.svg" alt="Bambu Lab"></div><div class="sk-n">3D Printing</div><div class="sk-g">BAMBU LAB</div></div>
+      <div class="sk-card"><div class="sk-box a"><img src="https://img.icons8.com/color/96/cnc-machine.png" alt="CNC"></div><div class="sk-n">CNC Machining</div><div class="sk-g">FABRICATION</div></div>
+      <div class="sk-card"><div class="sk-box o"><img class="flag" src="https://flagcdn.com/w160/ca.png" alt="Transport Canada"></div><div class="sk-n">Flight Operations</div><div class="sk-g">PPL &middot; TRANSPORT CANADA</div></div>
+      <div class="sk-card"><div class="sk-box k">
+        <svg class="nav-badge" viewBox="0 0 88 88" aria-label="NAV CANADA">
+          <rect width="88" height="88" rx="18" fill="#FFFFFF"/>
+          <text x="44" y="38" text-anchor="middle" fill="#0066B2" font-family="'Inter',sans-serif" font-weight="900" font-size="18.5" letter-spacing="0.03em">NAV</text>
+          <text x="44" y="53" text-anchor="middle" fill="#0066B2" font-family="'Inter',sans-serif" font-weight="600" font-size="11.5" letter-spacing="0.05em">CANADA</text>
+          <path d="M16 64 Q44 56 72 64 Q44 60 16 64 Z" fill="#0066B2"/>
+        </svg>
+      </div><div class="sk-n">ATC Radio</div><div class="sk-g">ROC-A &middot; NAV CANADA</div></div>
+      <div class="sk-card"><div class="sk-box i">
+        <svg class="ff-lockup" viewBox="0 0 260 76" aria-label="ForeFlight A Boeing Company">
+          <g transform="translate(38,38)">
+            <circle cx="0" cy="0" r="15" fill="none" stroke="#1F2937" stroke-width="2.4"/>
+            <path d="M0-29 L3.5-16 L-3.5-16 Z M0 29 L3.5 16 L-3.5 16 Z M-29 0 L-16 3.5 L-16-3.5 Z M29 0 L16 3.5 L16-3.5 Z M-20.5-20.5 L-9-13.5 L-13.5-9 Z M20.5-20.5 L13.5-9 L9-13.5 Z M-20.5 20.5 L-13.5 9 L-9 13.5 Z M20.5 20.5 L9 13.5 L13.5 9 Z M-11-26.5 L-3-15.5 L-8.5-14 Z M11-26.5 L8.5-14 L3-15.5 Z M-11 26.5 L-8.5 14 L-3 15.5 Z M11 26.5 L3 15.5 L8.5 14 Z M-26.5-11 L-14-8.5 L-15.5-3 Z M26.5-11 L15.5-3 L14-8.5 Z M-26.5 11 L-15.5 3 L-14 8.5 Z M26.5 11 L14 8.5 L15.5 3 Z" fill="#1F2937"/>
+            <path d="M0-11 L1.6-3 L10 1.5 L10 3.5 L1.6 1.5 L1.6 7.5 L4.5 9.5 L4.5 11 L0 9.8 L-4.5 11 L-4.5 9.5 L-1.6 7.5 L-1.6 1.5 L-10 3.5 L-10 1.5 L-1.6-3 Z" fill="#1F2937"/>
+          </g>
+          <text x="80" y="37" fill="#1F2937" font-family="'Inter',sans-serif" font-weight="700" font-size="29" letter-spacing="-0.02em">ForeFlight</text>
+          <text x="82" y="57" fill="#374151" font-family="'Inter',sans-serif" font-weight="400" font-size="13.5" letter-spacing="0.01em">A Boeing Company</text>
+        </svg>
+      </div><div class="sk-n">Flight Planning</div><div class="sk-g">VFR &middot; FOREFLIGHT</div></div>
+      <div class="sk-card"><div class="sk-box k">
+        <svg class="nav-badge" viewBox="0 0 88 88" aria-label="NAV CANADA CFPS">
+          <rect width="88" height="88" rx="18" fill="#FFFFFF"/>
+          <text x="44" y="38" text-anchor="middle" fill="#0066B2" font-family="'Inter',sans-serif" font-weight="900" font-size="18.5" letter-spacing="0.03em">NAV</text>
+          <text x="44" y="53" text-anchor="middle" fill="#0066B2" font-family="'Inter',sans-serif" font-weight="600" font-size="11.5" letter-spacing="0.05em">CANADA</text>
+          <path d="M16 64 Q44 56 72 64 Q44 60 16 64 Z" fill="#0066B2"/>
+        </svg>
+      </div><div class="sk-n">Meteorology</div><div class="sk-g">METAR / TAF &middot; CFPS</div></div>
     </div>
-  </div>
+  </section>
 
-  <!-- 3. BASEBALL (Exact 3-column layout from Google Sites) -->
-  <section id="baseball" class="story-sec">
-    <div class="three-col">
-      <div class="an">
-        <div class="eyebrow">&mdash; 01</div>
-        <h2 class="sec-title">Baseball</h2>
-        <p class="story-lead">14 years of competitive experience, including representation at the international level, all while mentoring future athletes at the same time.</p>
-        <ul class="story-list">
-          <li>Ranked #3 Canadian Freshman in 2022 by Prep Baseball Report</li>
-          <li>U14 Canadian National Team</li>
-          <li>U18 Filipino National Team</li>
-          <li>Featured in the baseball documentary <em>"Hard 90 to Home,"</em> filmed in Los Angeles</li>
-          <li>Former Baseball Instructor at Nicholson Baseball</li>
-        </ul>
+  <!-- 3. CREDENTIALS -->
+  <section id="credentials">
+    <div class="an">
+      <div class="eyebrow">&mdash; Certifications</div>
+      <h2 class="sec-title">Licenses &amp; credentials</h2>
+    </div>
+    <div class="cred-grid">
+      <div class="cred-card an">
+        <div class="cred-logo"><img src="https://flagcdn.com/w160/ca.png" alt="Transport Canada"></div>
+        <div class="cred-info">
+          <div class="cred-t">Private Pilot License (PPL)</div>
+          <div class="cred-d">Transport Canada &middot; single-engine land VFR flight operations and navigation.</div>
+          <a class="btn" href="https://www.linkedin.com/in/dylan-klatt-499aa4345" target="_blank" rel="noopener">View credential &rarr;</a>
+        </div>
       </div>
-
-      <div class="img-stack an">
-        <img src="./bb1.jpg" alt="Baseball photo 1">
-        <img src="./bb2.jpg" alt="Baseball photo 2">
+      <div class="cred-card an">
+        <div class="cred-logo"><img src="https://flagcdn.com/w160/ca.png" alt="ISED Canada"></div>
+        <div class="cred-info">
+          <div class="cred-t">Restricted Operator Certificate &ndash; Aeronautical</div>
+          <div class="cred-d">ISED Canada &middot; ROC-A aeronautical radiotelephone and ATC communications.</div>
+          <a class="btn" href="https://www.linkedin.com/in/dylan-klatt-499aa4345" target="_blank" rel="noopener">View credential &rarr;</a>
+        </div>
       </div>
-
-      <div class="img-stack an">
-        <img src="./bb3.jpg" alt="Baseball photo 3">
-        <img src="./bb4.jpg" alt="Baseball photo 4">
+      <div class="cred-card an">
+        <div class="cred-logo">
+          <svg viewBox="0 0 64 64" width="52" height="52" aria-label="Canadian Red Cross">
+            <rect width="64" height="64" rx="10" fill="#FFF"/>
+            <path d="M26 12h12v14h14v12H38v14H26V38H12V26h14V12z" fill="#ED1C24"/>
+          </svg>
+        </div>
+        <div class="cred-info">
+          <div class="cred-t">Standard First Aid with CPR/AED Level C</div>
+          <div class="cred-d">Canadian Red Cross &middot; WorkSafeBC Intermediate / OFA Level 2 certified.</div>
+          <a class="btn" href="https://www.linkedin.com/in/dylan-klatt-499aa4345" target="_blank" rel="noopener">View credential &rarr;</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 4. FLIGHT -->
-  <section id="flight" class="story-sec">
-    <div class="two-col">
-      <div class="an">
-        <div class="eyebrow">&mdash; 02</div>
-        <h2 class="sec-title">Flight</h2>
-        <p class="story-lead">Earning my Private Pilot License transformed how I view aerodynamics, aircraft systems, and disciplined decision-making under pressure.</p>
-        <ul class="story-list">
-          <li>Transport Canada Private Pilot License (PPL) &mdash; Single-Engine Land VFR</li>
-          <li>ISED Canada Restricted Operator Certificate &ndash; Aeronautical (ROC-A)</li>
-          <li>Cross-country VFR navigation, METAR/TAF weather analysis, and ForeFlight planning</li>
-          <li>Hands-on flight experience in Cessna 152 aircraft across British Columbia</li>
-        </ul>
+  <!-- 4. EXPERIENCE -->
+  <section id="experience">
+    <div class="an">
+      <div class="eyebrow">&mdash; Experience</div>
+      <h2 class="sec-title">What I've been up to</h2>
+    </div>
+    <div class="edu an">
+      <div class="ub">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/University_of_British_Columbia_coat_of_arms.svg/240px-University_of_British_Columbia_coat_of_arms.svg.png" alt="University of British Columbia Crest" onerror="this.style.display='none';this.parentElement.style.background='#002145';this.parentElement.style.color='#FFF';this.parentElement.style.fontWeight='700';this.parentElement.style.fontSize='15px';this.parentElement.textContent='UBC';">
       </div>
-      <div class="an">
-        <img class="feature-img" src="./hero1.jpg" alt="Dylan Klatt with Cessna 152">
+      <div>
+        <div class="eyebrow" style="margin-bottom:4px">&mdash; Education</div>
+        <div class="et">B.A.Sc. Mechanical Engineering</div>
+        <div class="es">Aerospace concentration &middot; <u>University of British Columbia</u></div>
       </div>
+    </div>
+    <div class="row an">
+      <div class="dt">Oct 2026 &ndash; Present</div><div class="tl"><div class="dot"></div></div>
+      <div class="mid">
+        <div class="rt">Aerostructures &amp; Composites Team Member</div>
+        <div class="co">UBCO Aerospace &middot; Kelowna, BC</div>
+        <div class="ds">Member of the Aerostructures and Composites subteam designing and fabricating composite structures for UBCO's first SRAD liquid rocket.</div>
+      </div>
+      <div class="pill">Design team</div>
+    </div>
+    <div class="row an">
+      <div class="dt">May 2026 &ndash; Sep 2026</div><div class="tl"><div class="dot"></div></div>
+      <div class="mid">
+        <div class="rt">Assistant Lifeguard</div>
+        <div class="co">Harrison Watersports &middot; Agassiz, BC</div>
+        <div class="ds">Delivered rapid first aid response and waterfront safety supervision for high-volume crowds of up to 250 guests per session.</div>
+      </div>
+      <div class="pill">Seasonal</div>
+    </div>
+    <div class="row an">
+      <div class="dt">Mar 2024 &ndash; Aug 2024</div><div class="tl"><div class="dot"></div></div>
+      <div class="mid">
+        <div class="rt">Baseball Instructor</div>
+        <div class="co">Nicholson Baseball &middot; Langley, BC</div>
+        <div class="ds">Hired by former MLB player Kevin Nicholson to coach youth athletes, leveraging premier club and international tournament experience.</div>
+      </div>
+      <div class="pill">Coaching</div>
     </div>
   </section>
 
-  <!-- 5. GOLF -->
-  <section id="golf" class="story-sec">
-    <div class="two-col">
-      <div class="an">
-        <div class="eyebrow">&mdash; 03</div>
-        <h2 class="sec-title">Golf</h2>
-        <p class="story-lead">Away from the shop and classroom, golf is where athletic mechanics meet patience, course strategy, and continual self-calibration.</p>
-        <ul class="story-list">
-          <li>Translating rotational biomechanics from competitive baseball into swing mechanics</li>
-          <li>Focused on precision, repeatable fundamentals, and calm execution</li>
-        </ul>
-      </div>
-      <div class="an">
-        <img class="feature-img" src="./hero3.jpg" alt="Golf driving range">
-      </div>
+  <!-- 5. SELECTED WORK -->
+  <section id="work">
+    <div class="an">
+      <div class="eyebrow">&mdash; Projects</div>
+      <h2 class="sec-title">Selected work</h2>
     </div>
-  </section>
-
-  <!-- 6. ENGINEERING -->
-  <section id="engineering" class="story-sec">
-    <div class="two-col">
-      <div class="an">
-        <div class="eyebrow">&mdash; 04</div>
-        <h2 class="sec-title">Engineering</h2>
-        <p class="story-lead">Pursuing Mechanical Engineering (Aerospace concentration) at UBC Okanagan to bridge hands-on flight experience with structural and aerodynamic design.</p>
-        <ul class="story-list">
-          <li>Aerostructures &amp; Composites subteam member at UBCO Aerospace (SRAD liquid rocket)</li>
-          <li>Hands-on wet layup fabrication with carbon fiber, fiberglass, and epoxy resin systems</li>
-          <li>3D CAD modeling and Flow Simulation CFD validation in SolidWorks &amp; ANSYS</li>
-          <li>Focused on lightweight composite airframes and fluid-structure interaction</li>
-        </ul>
+    <div class="work-grid">
+      <div class="work-card an">
+        <div class="work-thumb">Composite Nose Cone &amp; Layups</div>
+        <div class="work-body">
+          <div class="work-tag">UBCO Aerospace</div>
+          <div class="work-t">SRAD Liquid Rocket Aerostructures</div>
+          <div class="work-d">Fiberglass and carbon-fiber layup fabrication and structural design for UBC Okanagan's liquid rocket airframe.</div>
+        </div>
       </div>
-      <div class="an">
-        <img class="feature-img" src="./hero2.jpg" alt="Composite rocket nose cone fabrication">
+      <div class="work-card an">
+        <div class="work-thumb">CAD &amp; Mechanical Design</div>
+        <div class="work-body">
+          <div class="work-tag">Engineering Design</div>
+          <div class="work-t">Floodproof Wellhead Check Valve</div>
+          <div class="work-d">Autonomous ball-float valve assembly modeled in SolidWorks to protect 6.625-inch well casings during flood events.</div>
+        </div>
+      </div>
+      <div class="work-card an">
+        <div class="work-thumb">Video / Presentation Showcase</div>
+        <div class="work-body">
+          <div class="work-tag">CFD &amp; Flight</div>
+          <div class="work-t">Aerodynamics &amp; Flight Operations</div>
+          <div class="work-d">SolidWorks Flow Simulation studies and cross-country VFR flight planning in Cessna 152 aircraft.</div>
+        </div>
       </div>
     </div>
   </section>
 </div>
 
 <footer>
-  Dylan Klatt &middot; <a href="index.html">Home</a> &middot; <a href="https://www.linkedin.com/in/dylan-klatt-499aa4345" target="_blank" rel="noopener">Connect on LinkedIn</a>
+  Dylan Klatt &middot; <a href="about.html">About Me</a> &middot; <a href="https://www.linkedin.com/in/dylan-klatt-499aa4345" target="_blank" rel="noopener">Connect on LinkedIn</a>
 </footer>
 
 <script>
+  // 1. Typewriter Headline Animation ("Hello" -> backspace -> "I'm Dylan")
+  window.addEventListener("DOMContentLoaded", function () {
+    const el = document.getElementById("typed-headline");
+    const firstWord = "Hello";
+    const secondWord = "I'm Dylan";
+    let i = 0;
+
+    function typeFirst() {
+      if (i < firstWord.length) {
+        el.textContent += firstWord.charAt(i++);
+        setTimeout(typeFirst, 75);
+      } else {
+        setTimeout(backspaceFirst, 650);
+      }
+    }
+
+    function backspaceFirst() {
+      if (el.textContent.length > 0) {
+        el.textContent = el.textContent.slice(0, -1);
+        setTimeout(backspaceFirst, 50);
+      } else {
+        i = 0;
+        setTimeout(typeSecond, 220);
+      }
+    }
+
+    function typeSecond() {
+      if (i < secondWord.length) {
+        el.textContent += secondWord.charAt(i++);
+        setTimeout(typeSecond, 65);
+      }
+    }
+
+    typeFirst();
+  });
+
+  // 2. Infinite Auto-Scroll Marquee + Left/Right Arrow Buttons
+  const r = document.getElementById("r");
+  r.innerHTML += r.innerHTML;
+  let paused = false, pos = 0, resumeTimer;
+  r.onmouseenter = r.ontouchstart = () => paused = true;
+  r.onmouseleave = r.ontouchend = () => { paused = false; pos = r.scrollLeft; };
+  r.onscroll = () => {
+    const half = r.scrollWidth / 2;
+    if (r.scrollLeft >= half) { r.scrollLeft -= half; pos = r.scrollLeft; }
+    else if (r.scrollLeft <= 0) { r.scrollLeft += half; pos = r.scrollLeft; }
+  };
+
+  function stepScroll(dir) {
+    paused = true;
+    clearTimeout(resumeTimer);
+    const half = r.scrollWidth / 2;
+    if (dir < 0 && r.scrollLeft < 220) {
+      r.scrollLeft += half;
+    }
+    r.scrollBy({ left: dir * 206, behavior: "smooth" });
+    resumeTimer = setTimeout(() => {
+      pos = r.scrollLeft;
+      paused = false;
+    }, 1200);
+  }
+  document.getElementById("tk-prev").onclick = () => stepScroll(-1);
+  document.getElementById("tk-next").onclick = () => stepScroll(1);
+
+  (function loop() {
+    if (!paused) { pos += 0.6; r.scrollLeft = pos; }
+    requestAnimationFrame(loop);
+  })();
+
+  // 3. Full-Page Scroll Reveal
   const obs = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) entry.target.classList.add("v");
