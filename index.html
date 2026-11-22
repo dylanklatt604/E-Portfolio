@@ -10,14 +10,17 @@
   html{scroll-behavior:smooth}
   body{margin:0;background:#FAFAFA;color:#111827;font-family:'Inter',-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
   
-  /* Sticky Top Nav */
-  nav{position:sticky;top:0;z-index:50;background:rgba(250,250,250,0.88);backdrop-filter:blur(12px);border-bottom:1px solid #EBECEF}
+  /* Sticky Top Nav (matches about.html) */
+  nav{position:sticky;top:0;z-index:50;background:rgba(250,250,250,0.92);backdrop-filter:blur(12px);border-bottom:1px solid #EBECEF}
   .nav-in{max-width:1040px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between}
   .brand{font-weight:700;font-size:17px;color:#111827;text-decoration:none;letter-spacing:-0.02em}
-  .nav-links{display:flex;gap:24px;align-items:center}
-  .nav-links a{font-size:13.5px;font-weight:500;color:#4B5563;text-decoration:none;transition:.2s}
+  .nav-links{display:flex;gap:28px;align-items:center}
+  .nav-links a{font-size:14px;font-weight:500;color:#6B7280;text-decoration:none;padding:6px 0;border-bottom:2px solid transparent;transition:.2s}
   .nav-links a:hover{color:#111827}
-  @media(max-width:640px){.nav-links a.hide-m{display:none}}
+  .nav-links a.active{color:#111827;font-weight:600;border-bottom-color:#111827}
+  .nav-cta{display:inline-flex;align-items:center;gap:6px;padding:9px 20px;border-radius:999px;font-size:13.5px;font-weight:600;color:#FFF;background:#111827;text-decoration:none;transition:.2s}
+  .nav-cta:hover{background:#374151;transform:translateY(-1px)}
+  @media(max-width:720px){.nav-links a.hide-m{display:none}}
 
   /* Layout Container */
   .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
@@ -115,14 +118,15 @@
 
 <nav>
   <div class="nav-in">
-    <a class="brand" href="#">Dylan Klatt</a>
+    <a class="brand" href="index.html">Dylan Klatt</a>
     <div class="nav-links">
       <a class="hide-m" href="#skills">Skills</a>
       <a class="hide-m" href="#credentials">Credentials</a>
       <a class="hide-m" href="#experience">Experience</a>
-      <a class="hide-m" href="#work">Selected Work</a>
-      <a class="btn" href="https://www.linkedin.com/in/dylan-klatt-499aa4345" target="_blank" rel="noopener">LinkedIn &rarr;</a>
+      <a class="hide-m" href="#work">Projects</a>
+      <a class="hide-m" href="about.html">About me</a>
     </div>
+    <a class="nav-cta" href="https://www.linkedin.com/in/dylan-klatt-499aa4345" target="_blank" rel="noopener">LinkedIn &rarr;</a>
   </div>
 </nav>
 
@@ -317,7 +321,7 @@
 </div>
 
 <footer>
-  Dylan Klatt &middot; <a href="https://www.linkedin.com/in/dylan-klatt-499aa4345" target="_blank" rel="noopener">Connect on LinkedIn</a>
+  Dylan Klatt &middot; <a href="about.html">About Me</a> &middot; <a href="https://www.linkedin.com/in/dylan-klatt-499aa4345" target="_blank" rel="noopener">Connect on LinkedIn</a>
 </footer>
 
 <script>
