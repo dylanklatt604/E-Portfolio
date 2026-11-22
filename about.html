@@ -37,7 +37,7 @@
   .an{opacity:0;transform:translateY(22px);transition:opacity .65s ease-out,transform .65s ease-out}
   .an.v{opacity:1;transform:none}
 
-  /* TOP: 4 Worlds Grid (3:4 portrait aspect ratio matches bb1.jpg, hero1.jpg, g1.jpg, hero2.jpg) */
+  /* TOP: 4 Worlds Grid */
   .worlds-hero{padding-top:56px;padding-bottom:76px;border-bottom:1px solid #E5E7EB}
   .worlds-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
   @media(max-width:900px){.worlds-grid{grid-template-columns:repeat(2,1fr)}}
@@ -50,36 +50,47 @@
   .world-card:hover .world-img-wrap img{transform:scale(1.03)}
   .world-card .btn{width:100%}
 
-  /* Asymmetric 3-Column Story Layout (~36% Text | ~32% Col 1 | ~32% Col 2) */
+  /* Story Sections */
   .story-sec{border-bottom:1px solid #E5E7EB;padding:84px 0}
   .story-sec:last-of-type{border-bottom:none}
+
+  /* Baseball Asymmetric Layout: Text | Narrower Left Photo Col (bb2 + bb3) | Wider Right Photo Col (bb4 + full bb5 scoreboard) */
+  .bb-layout{display:grid;grid-template-columns:0.95fr 0.85fr 1.2fr;gap:22px;align-items:start}
+  @media(max-width:940px){
+    .bb-layout{grid-template-columns:0.85fr 1.15fr;gap:20px}
+    .bb-layout .story-text{grid-column:1 / -1;margin-bottom:8px}
+  }
+  @media(max-width:560px){
+    .bb-layout{grid-template-columns:1fr}
+  }
+
+  /* Standard 3-Column Layout for Flight, Golf, Engineering */
   .story-layout{display:grid;grid-template-columns:1.08fr 0.96fr 0.96fr;gap:26px;align-items:start}
   @media(max-width:940px){
     .story-layout{grid-template-columns:1fr 1fr;gap:22px}
-    .story-text{grid-column:1 / -1;margin-bottom:8px}
+    .story-layout .story-text{grid-column:1 / -1;margin-bottom:8px}
   }
   @media(max-width:560px){
     .story-layout{grid-template-columns:1fr}
   }
 
-  .story-text{padding-right:14px}
+  .story-text{padding-right:10px}
   .story-lead{font-size:16px;color:#374151;line-height:1.65;margin:0 0 22px}
   .story-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:13px}
   .story-list li{position:relative;padding-left:20px;font-size:14.5px;color:#4B5563;line-height:1.55}
   .story-list li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:#206A94}
 
-  /* Staggered Photo Columns Matched to Actual Photo Aspect Ratios */
-  .media-col{display:flex;flex-direction:column;gap:20px}
+  .media-col{display:flex;flex-direction:column;gap:18px}
   .media-col img{width:100%;object-fit:cover;border-radius:16px;border:1px solid #E5E7EB;background:#F3F4F6;box-shadow:0 8px 22px rgba(0,0,0,.05);display:block;transition:transform .3s ease}
   .media-col img:hover{transform:translateY(-3px)}
 
-  /* Baseball 4-photo balanced heights: Col 1 (360 + 200 = 560px) == Col 2 (280 + 260 = 540px + 20px gap = 560px) */
-  .img-portrait-lg{height:360px;object-position:center 18%}
-  .img-land-sm{height:200px;object-position:center center}
-  .img-land-lg{height:280px;object-position:center 25%}
-  .img-banner{height:260px;object-position:center center}
+  /* Baseball Exact Balanced Heights: Left (245 + 205 = 450px) == Right (285 + 165 = 450px) */
+  .bb-top-left{height:245px;object-position:center 18%}
+  .bb-bot-left{height:205px;object-position:center 20%}
+  .bb-top-right{height:285px;object-position:65% 22%}
+  .bb-scoreboard{height:165px;object-fit:fill;background:#111827}
 
-  /* Single-row / 2-photo sections (Flight, Golf, Engineering) */
+  /* 2-photo sections (Flight, Golf, Engineering) */
   .img-portrait-solo{height:380px;object-position:center 18%}
   .img-land-solo{height:250px;object-position:center center}
 
@@ -147,9 +158,9 @@
     </div>
   </section>
 
-  <!-- 1. BASEBALL (bb2.jpg, bb3.jpg, bb4.jpg, bb5.jpeg) -->
+  <!-- 1. BASEBALL (Left: bb2 + bb3 | Right: bb4 + full-width bb5 scoreboard) -->
   <section id="baseball" class="story-sec">
-    <div class="story-layout">
+    <div class="bb-layout">
       <div class="story-text an">
         <div class="eyebrow">&mdash; World 01</div>
         <h2 class="sec-title">Baseball</h2>
@@ -163,12 +174,12 @@
         </ul>
       </div>
       <div class="media-col an">
-        <img class="img-portrait-lg" src="./photos/bb2.jpg" alt="U18 Filipino National Team">
-        <img class="img-land-sm" src="./photos/bb4.jpg" alt="Team Canada base running at loanDepot park">
+        <img class="bb-top-left" src="./photos/bb2.jpg" alt="U18 Filipino National Team">
+        <img class="bb-bot-left" src="./photos/bb3.jpg" alt="Catcher and pitcher mound visit">
       </div>
       <div class="media-col an">
-        <img class="img-land-lg" src="./photos/bb3.jpg" alt="Catcher and pitcher mound visit">
-        <img class="img-banner" src="./photos/bb5.jpeg" alt="Power Showcase scoreboard at loanDepot park">
+        <img class="bb-top-right" src="./photos/bb4.jpg" alt="Team Canada base running at loanDepot park">
+        <img class="bb-scoreboard" src="./photos/bb5.jpeg" alt="Power Showcase scoreboard at loanDepot park">
       </div>
     </div>
   </section>
