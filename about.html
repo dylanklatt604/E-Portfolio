@@ -75,7 +75,8 @@
   }
 
   .story-text{padding-right:10px}
-  .story-lead{font-size:16px;color:#374151;line-height:1.65;margin:0 0 22px}
+  .story-lead{font-size:16px;color:#374151;line-height:1.65;margin:0 0 16px}
+  .story-lead + .story-lead{margin-bottom:22px}
   .story-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:13px}
   .story-list li{position:relative;padding-left:20px;font-size:14.5px;color:#4B5563;line-height:1.55}
   .story-list li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:#206A94}
@@ -93,7 +94,11 @@
   /* Flight Balanced Dual-Portrait Media (f1.jpg + f2.mp4 takeoff video) */
   .flight-media{height:440px;object-position:center 25%}
 
-  /* Golf & Engineering */
+  /* Golf 4-Slot Vertical 2x2 Grid (g3.jpg + g2.mp4 | g4.jpg + g5.mp4) */
+  .golf-img{height:275px;object-position:center 22%}
+  .golf-vid{height:225px;object-position:center 35%}
+
+  /* Engineering */
   .img-portrait-solo{height:380px;object-position:center 18%}
   .img-land-solo{height:250px;object-position:center center}
 
@@ -211,23 +216,26 @@
     </div>
   </section>
 
-  <!-- 3. GOLF -->
+  <!-- 3. GOLF (g3.jpg + g2.mp4 | g4.jpg + g5.mp4) -->
   <section id="golf" class="story-sec">
     <div class="story-layout">
       <div class="story-text an">
         <div class="eyebrow">&mdash; World 03</div>
         <h2 class="sec-title">Golf</h2>
-        <p class="story-lead">Away from the shop and classroom, golf is where athletic mechanics meet patience, course strategy, and continual self-calibration.</p>
+        <p class="story-lead">Being a recently retired athlete, I have officially stepped into the realm of golf!</p>
+        <p class="story-lead">Different sport, same approach&mdash;fun is just a side effect of disciplined reps</p>
         <ul class="story-list">
-          <li>Translating rotational biomechanics from competitive baseball into swing mechanics</li>
-          <li>Focused on precision, repeatable fundamentals, and calm execution</li>
+          <li>Translating rotational mechanics from baseball into a brand new swing</li>
+          <li>Leveraging my natural athletic explosiveness to aura farm at the range</li>
         </ul>
       </div>
       <div class="media-col an">
-        <img class="img-portrait-solo" src="./photos/g2.jpg" alt="Golf photo 2" onerror="this.outerHTML='<div class=&quot;photo-placeholder&quot; style=&quot;height:380px&quot;>photos/g2.jpg</div>'">
+        <img class="golf-img" src="./photos/g3.jpg" alt="Night driving range session">
+        <video class="golf-vid" src="./photos/g2.mp4" autoplay loop muted playsinline controls aria-label="Down the line iron swing"></video>
       </div>
       <div class="media-col an">
-        <img class="img-land-solo" src="./photos/g3.jpg" alt="Golf photo 3" onerror="this.outerHTML='<div class=&quot;photo-placeholder&quot; style=&quot;height:250px&quot;>photos/g3.jpg</div>'">
+        <img class="golf-img" src="./photos/g4.jpg" alt="Fairway follow-through">
+        <video class="golf-vid" src="./photos/g5.mp4" autoplay loop muted playsinline controls aria-label="Night driver swing"></video>
       </div>
     </div>
   </section>
