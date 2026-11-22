@@ -8,16 +8,21 @@
 <style>
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{margin:0;background:#FAFAFA;color:#111827;font-family:'Inter',-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+  body{margin:0;background:#FAFAFA;color:#111827;font-family:'Inter',-apple-system,sans-serif;-webkit-font-smoothing:antialiased;transition:background .25s ease,color .25s ease}
   
-  /* Sticky Top Nav (matches about.html) */
-  nav{position:sticky;top:0;z-index:50;background:rgba(250,250,250,0.92);backdrop-filter:blur(12px);border-bottom:1px solid #EBECEF}
+  /* Sticky Top Nav */
+  nav{position:sticky;top:0;z-index:50;background:rgba(250,250,250,0.92);backdrop-filter:blur(12px);border-bottom:1px solid #EBECEF;transition:background .25s ease,border-color .25s ease}
   .nav-in{max-width:1040px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between}
   .brand{font-weight:700;font-size:17px;color:#111827;text-decoration:none;letter-spacing:-0.02em}
   .nav-links{display:flex;gap:28px;align-items:center}
-  .nav-links a{font-size:14px;font-weight:500;color:#6B7280;text-decoration:none;padding:6px 0;border-bottom:2px solid transparent;transition:.2s}
+  .nav-links a{position:relative;font-size:14px;font-weight:500;color:#6B7280;text-decoration:none;padding:8px 0;transition:.2s}
   .nav-links a:hover{color:#111827}
-  .nav-links a.active{color:#111827;font-weight:600;border-bottom-color:#111827}
+  .nav-links a.active{color:#111827;font-weight:600}
+  .nav-links a.active::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2.5px;border-radius:999px;background:#111827}
+  .nav-actions{display:flex;align-items:center;gap:12px}
+  .theme-btn{width:38px;height:38px;border-radius:50%;border:1px solid #E5E7EB;background:#FFF;color:#4B5563;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s,border-color .2s,color .2s,transform .15s;padding:0}
+  .theme-btn:hover{background:#F3F4F6;border-color:#9CA3AF;color:#111827}
+  .theme-btn:active{transform:scale(.94)}
   .nav-cta{display:inline-flex;align-items:center;gap:6px;padding:9px 20px;border-radius:999px;font-size:13.5px;font-weight:600;color:#FFF;background:#111827;text-decoration:none;transition:.2s}
   .nav-cta:hover{background:#374151;transform:translateY(-1px)}
   @media(max-width:720px){.nav-links a.hide-m{display:none}}
@@ -99,19 +104,40 @@
   .pill{align-self:flex-start;margin-top:24px;flex-shrink:0;font-size:12px;font-weight:600;color:#4B5563;border:1px solid #E5E7EB;border-radius:999px;padding:6px 14px;background:#FFF}
   @media(max-width:640px){.row{flex-wrap:wrap}.dt{flex:0 0 100%;padding:20px 0 0}.tl{display:none}.mid{padding:8px 0 20px}.pill{margin-top:0;margin-bottom:20px}}
 
-  /* 5. Selected Work Grid */
-  .work-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px}
-  .work-card{background:#FFF;border:1px solid #E5E7EB;border-radius:16px;overflow:hidden;transition:.2s}
-  .work-card:hover{border-color:#111827;transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.05)}
-  .work-thumb{height:180px;background:#F3F4F6;display:flex;align-items:center;justify-content:center;color:#9CA3AF;font-size:13px;font-weight:600;border-bottom:1px solid #E5E7EB}
-  .work-body{padding:20px 22px}
-  .work-tag{font-size:11px;font-weight:700;letter-spacing:.1em;color:#206A94;text-transform:uppercase;margin-bottom:6px}
-  .work-t{font-size:17px;font-weight:700;margin-bottom:6px}
-  .work-d{font-size:13.5px;color:#6B7280;line-height:1.5}
+  /* Bottom-Right Visit Counter Badge */
+  .visit-badge{position:fixed;bottom:20px;right:20px;z-index:45;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,0.92);backdrop-filter:blur(10px);border:1px solid #E5E7EB;box-shadow:0 4px 16px rgba(0,0,0,.06);font-size:12px;font-weight:600;color:#4B5563;transition:background .25s ease,border-color .25s ease,color .25s ease}
+  .visit-dot{width:7px;height:7px;border-radius:50%;background:#10B981;flex-shrink:0}
+  .visit-badge span#visit-count{color:#111827;font-variant-numeric:tabular-nums}
 
   /* Footer */
   footer{border-top:1px solid #E5E7EB;padding:36px 24px;text-align:center;font-size:13px;color:#6B7280;background:#FFF;margin-top:40px}
   footer a{color:#111827;font-weight:600;text-decoration:none}
+
+  /* Dark Mode Theme */
+  body.dark{background:#0B0F17;color:#F3F4F6}
+  body.dark nav{background:rgba(11,15,23,0.9);border-bottom-color:#1F2937}
+  body.dark .brand,body.dark .sec-title,body.dark .sk-n,body.dark .cred-t,body.dark .et,body.dark .rt,body.dark footer a,body.dark .visit-badge span#visit-count{color:#F9FAFB}
+  body.dark .nav-links a{color:#9CA3AF}
+  body.dark .nav-links a:hover,body.dark .nav-links a.active{color:#F9FAFB}
+  body.dark .nav-links a.active::after{background:#F9FAFB}
+  body.dark .theme-btn,body.dark .tk-btn{background:#111827;border-color:#263042;color:#E5E7EB}
+  body.dark .theme-btn:hover,body.dark .tk-btn:hover{background:#1F2937;border-color:#4B5563}
+  body.dark .nav-cta{background:#F9FAFB;color:#111827}
+  body.dark .nav-cta:hover{background:#E5E7EB}
+  body.dark .headline{color:#5BA4CF}
+  body.dark .cursor{background:#5BA4CF}
+  body.dark .bio{color:#D1D5DB}
+  body.dark .collage img{border-color:#1F2937}
+  body.dark .sk-card,body.dark .cred-card,body.dark .edu,body.dark .pill,body.dark .btn{background:#111827;border-color:#1F2937;color:#F3F4F6}
+  body.dark .sk-card:hover,body.dark .cred-card:hover,body.dark .btn:hover{border-color:#6B7280;background:#161F30}
+  body.dark .cred-logo,body.dark .ub{background:#1A2234;border-color:#263042}
+  body.dark .cred-d,body.dark .ds,body.dark footer{color:#9CA3AF}
+  body.dark .es,body.dark .co{color:#D1D5DB}
+  body.dark .row,body.dark .row:last-child,body.dark footer{border-color:#1F2937}
+  body.dark .tl:before{background:#1F2937}
+  body.dark .dot{background:#F9FAFB}
+  body.dark footer{background:#0B0F17}
+  body.dark .visit-badge{background:rgba(17,24,39,0.92);border-color:#1F2937;color:#9CA3AF}
 </style>
 </head>
 <body>
@@ -123,10 +149,14 @@
       <a class="hide-m" href="#skills">Skills</a>
       <a class="hide-m" href="#credentials">Credentials</a>
       <a class="hide-m" href="#experience">Experience</a>
-      <a class="hide-m" href="#work">Projects</a>
       <a class="hide-m" href="about.html">About me</a>
     </div>
-    <a class="nav-cta" href="https://www.linkedin.com/in/dylan-klatt-499aa4345" target="_blank" rel="noopener">LinkedIn &rarr;</a>
+    <div class="nav-actions">
+      <button class="theme-btn" id="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <svg id="theme-icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a class="nav-cta" href="https://www.linkedin.com/in/dylan-klatt-499aa4345" target="_blank" rel="noopener">LinkedIn &rarr;</a>
+    </div>
   </div>
 </nav>
 
@@ -284,40 +314,12 @@
       <div class="pill">Coaching</div>
     </div>
   </section>
+</div>
 
-  <!-- 5. SELECTED WORK -->
-  <section id="work">
-    <div class="an">
-      <div class="eyebrow">&mdash; Projects</div>
-      <h2 class="sec-title">Selected work</h2>
-    </div>
-    <div class="work-grid">
-      <div class="work-card an">
-        <div class="work-thumb">Composite Nose Cone &amp; Layups</div>
-        <div class="work-body">
-          <div class="work-tag">UBCO Aerospace</div>
-          <div class="work-t">SRAD Liquid Rocket Aerostructures</div>
-          <div class="work-d">Fiberglass and carbon-fiber layup fabrication and structural design for UBC Okanagan's liquid rocket airframe.</div>
-        </div>
-      </div>
-      <div class="work-card an">
-        <div class="work-thumb">CAD &amp; Mechanical Design</div>
-        <div class="work-body">
-          <div class="work-tag">Engineering Design</div>
-          <div class="work-t">Floodproof Wellhead Check Valve</div>
-          <div class="work-d">Autonomous ball-float valve assembly modeled in SolidWorks to protect 6.625-inch well casings during flood events.</div>
-        </div>
-      </div>
-      <div class="work-card an">
-        <div class="work-thumb">Video / Presentation Showcase</div>
-        <div class="work-body">
-          <div class="work-tag">CFD &amp; Flight</div>
-          <div class="work-t">Aerodynamics &amp; Flight Operations</div>
-          <div class="work-d">SolidWorks Flow Simulation studies and cross-country VFR flight planning in Cessna 152 aircraft.</div>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- Bottom-Right Live Visit Counter -->
+<div class="visit-badge" title="Total site visits">
+  <span class="visit-dot"></span>
+  <span>Visits: <span id="visit-count">...</span></span>
 </div>
 
 <footer>
@@ -333,6 +335,76 @@
     const standing = yr >= 5 ? "B.A.Sc. Graduate" : (ordinals[Math.max(0, yr - 1)] + " Year");
     const el = document.getElementById("year-standing");
     if (el) el.textContent = standing;
+  })();
+
+  // Dark Mode Toggle (persists across reloads)
+  (function () {
+    const btn = document.getElementById("theme-toggle");
+    const icon = document.getElementById("theme-icon");
+    const moonSVG = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+    const sunSVG = '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
+
+    function applyTheme(isDark) {
+      document.body.classList.toggle("dark", isDark);
+      icon.innerHTML = isDark ? sunSVG : moonSVG;
+    }
+
+    const saved = localStorage.getItem("dk-theme");
+    applyTheme(saved === "dark");
+
+    btn.addEventListener("click", () => {
+      const next = !document.body.classList.contains("dark");
+      applyTheme(next);
+      localStorage.setItem("dk-theme", next ? "dark" : "light");
+    });
+  })();
+
+  // Active Section Nav Underline (Scroll-Spy)
+  (function () {
+    const sectionIds = ["skills", "credentials", "experience"];
+    const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+    const navLinks = sectionIds.map(id => document.querySelector(`.nav-links a[href="#${id}"]`));
+
+    function updateActiveNav() {
+      const scrollPos = window.scrollY + 180;
+      let currentIdx = -1;
+
+      sections.forEach((sec, idx) => {
+        if (scrollPos >= sec.offsetTop) {
+          currentIdx = idx;
+        }
+      });
+
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 20) {
+        currentIdx = sections.length - 1;
+      }
+
+      navLinks.forEach((link, idx) => {
+        if (link) link.classList.toggle("active", idx === currentIdx);
+      });
+    }
+
+    window.addEventListener("scroll", updateActiveNav, { passive: true });
+    updateActiveNav();
+  })();
+
+  // Live Global Website Visit Counter
+  (function () {
+    const countEl = document.getElementById("visit-count");
+    fetch("https://api.counterapi.dev/v1/dylanklatt-portfolio/visits/up")
+      .then(res => res.json())
+      .then(data => {
+        if (data && typeof data.count === "number") {
+          countEl.textContent = data.count.toLocaleString();
+        } else {
+          throw new Error("Invalid response");
+        }
+      })
+      .catch(() => {
+        const local = (parseInt(localStorage.getItem("dk-local-visits") || "0", 10) + 1);
+        localStorage.setItem("dk-local-visits", local);
+        countEl.textContent = local.toLocaleString();
+      });
   })();
 
   // 1. Typewriter Headline Animation ("Hello" -> backspace -> "I'm Dylan")
