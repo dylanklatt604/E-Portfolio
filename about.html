@@ -30,4 +30,203 @@
   .an{opacity:0;transform:translateY(20px);transition:opacity .6s ease-out,transform .6s ease-out}
   .an.v{opacity:1;transform:none}
 
-  /* Section
+  /* Section 1: Centered Heading ("4 worlds, one story") */
+  .worlds-header{text-align:center;padding:64px 0 36px}
+  .worlds-title{font-family:'Lato',sans-serif;font-size:clamp(36px,4.5vw,52px);font-weight:700;color:#206A94;margin:0;letter-spacing:-0.5px}
+
+  /* Section 2: 4 Equal Columns + Button Under Each Image */
+  .worlds-row{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding-bottom:76px;border-bottom:1px solid #E5E7EB}
+  @media(max-width:860px){.worlds-row{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:480px){.worlds-row{grid-template-columns:1fr}}
+
+  .world-col{display:flex;flex-direction:column;align-items:center;gap:16px}
+  .world-photo{width:100%;aspect-ratio:3/4;border-radius:14px;overflow:hidden;border:1px solid #E5E7EB;background:#E5E7EB;box-shadow:0 6px 20px rgba(0,0,0,.05)}
+  .world-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease}
+  .world-col:hover .world-photo img{transform:scale(1.03)}
+
+  /* Pill Buttons matching dylanklatt.com .btn */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:9px 22px;border:1px solid #D1D5DB;border-radius:999px;font-size:13.5px;font-weight:600;color:#111827;text-decoration:none;background:#FFF;transition:.2s;min-width:140px}
+  .btn:hover{border-color:#111827;background:#F9FAFB;transform:translateY(-1px)}
+
+  /* Story Sections (matching Google Sites 3-column & split sizing) */
+  .story-sec{padding:76px 0;border-bottom:1px solid #E5E7EB}
+  .story-sec:last-of-type{border-bottom:none}
+  .sec-title{font-family:'Lato',sans-serif;font-size:34px;font-weight:700;letter-spacing:-.02em;margin:0 0 16px;color:#111827}
+  .story-lead{font-size:16px;color:#374151;line-height:1.65;margin:0 0 20px}
+  .story-list{padding-left:20px;margin:0;display:flex;flex-direction:column;gap:10px}
+  .story-list li{font-size:14.5px;color:#4B5563;line-height:1.55}
+
+  /* Baseball 3-Column Layout (Text Left | 2 Stacked Photos Mid | 2 Stacked Photos Right) */
+  .three-col{display:grid;grid-template-columns:1.1fr 0.95fr 0.95fr;gap:24px;align-items:start}
+  @media(max-width:900px){.three-col{grid-template-columns:1fr}}
+  .img-stack{display:flex;flex-direction:column;gap:18px}
+  .img-stack img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px;border:1px solid #E5E7EB;background:#E5E7EB;box-shadow:0 6px 18px rgba(0,0,0,.04);display:block}
+
+  /* 2-Column Layout for Flight, Golf & Engineering */
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
+  @media(max-width:860px){.two-col{grid-template-columns:1fr}}
+  .feature-img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px;border:1px solid #E5E7EB;background:#E5E7EB;box-shadow:0 6px 20px rgba(0,0,0,.05);display:block}
+
+  /* Footer */
+  footer{border-top:1px solid #E5E7EB;padding:36px 24px;text-align:center;font-size:13px;color:#6B7280;background:#FFF;margin-top:20px}
+  footer a{color:#111827;font-weight:600;text-decoration:none}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <a class="brand" href="index.html">Dylan Klatt</a>
+    <div class="nav-links">
+      <a class="hide-m" href="index.html#skills">Skills</a>
+      <a class="hide-m" href="index.html#credentials">Credentials</a>
+      <a class="hide-m" href="index.html#experience">Experience</a>
+      <a class="hide-m" href="index.html#work">Projects</a>
+      <a class="active" href="about.html">About me</a>
+    </div>
+    <a class="nav-cta" href="https://www.linkedin.com/in/dylan-klatt-499aa4345" target="_blank" rel="noopener">LinkedIn &rarr;</a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <!-- 1. CENTERED TITLE -->
+  <div class="worlds-header an">
+    <div class="eyebrow">&mdash; About Me</div>
+    <h1 class="worlds-title">4 worlds, one story</h1>
+  </div>
+
+  <!-- 2. FOUR COLUMNS WITH BUTTONS UNDERNEATH -->
+  <div class="worlds-row">
+    <div class="world-col an">
+      <div class="world-photo">
+        <img src="./world-baseball.jpg" alt="Baseball">
+      </div>
+      <a class="btn" href="#baseball">Baseball</a>
+    </div>
+
+    <div class="world-col an">
+      <div class="world-photo">
+        <img src="./hero1.jpg" alt="Flight">
+      </div>
+      <a class="btn" href="#flight">Flight</a>
+    </div>
+
+    <div class="world-col an">
+      <div class="world-photo">
+        <img src="./hero3.jpg" alt="Golf">
+      </div>
+      <a class="btn" href="#golf">Golf</a>
+    </div>
+
+    <div class="world-col an">
+      <div class="world-photo">
+        <img src="./hero2.jpg" alt="Engineering">
+      </div>
+      <a class="btn" href="#engineering">Engineering</a>
+    </div>
+  </div>
+
+  <!-- 3. BASEBALL (Exact 3-column layout from Google Sites) -->
+  <section id="baseball" class="story-sec">
+    <div class="three-col">
+      <div class="an">
+        <div class="eyebrow">&mdash; 01</div>
+        <h2 class="sec-title">Baseball</h2>
+        <p class="story-lead">14 years of competitive experience, including representation at the international level, all while mentoring future athletes at the same time.</p>
+        <ul class="story-list">
+          <li>Ranked #3 Canadian Freshman in 2022 by Prep Baseball Report</li>
+          <li>U14 Canadian National Team</li>
+          <li>U18 Filipino National Team</li>
+          <li>Featured in the baseball documentary <em>"Hard 90 to Home,"</em> filmed in Los Angeles</li>
+          <li>Former Baseball Instructor at Nicholson Baseball</li>
+        </ul>
+      </div>
+
+      <div class="img-stack an">
+        <img src="./bb1.jpg" alt="Baseball photo 1">
+        <img src="./bb2.jpg" alt="Baseball photo 2">
+      </div>
+
+      <div class="img-stack an">
+        <img src="./bb3.jpg" alt="Baseball photo 3">
+        <img src="./bb4.jpg" alt="Baseball photo 4">
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. FLIGHT -->
+  <section id="flight" class="story-sec">
+    <div class="two-col">
+      <div class="an">
+        <div class="eyebrow">&mdash; 02</div>
+        <h2 class="sec-title">Flight</h2>
+        <p class="story-lead">Earning my Private Pilot License transformed how I view aerodynamics, aircraft systems, and disciplined decision-making under pressure.</p>
+        <ul class="story-list">
+          <li>Transport Canada Private Pilot License (PPL) &mdash; Single-Engine Land VFR</li>
+          <li>ISED Canada Restricted Operator Certificate &ndash; Aeronautical (ROC-A)</li>
+          <li>Cross-country VFR navigation, METAR/TAF weather analysis, and ForeFlight planning</li>
+          <li>Hands-on flight experience in Cessna 152 aircraft across British Columbia</li>
+        </ul>
+      </div>
+      <div class="an">
+        <img class="feature-img" src="./hero1.jpg" alt="Dylan Klatt with Cessna 152">
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. GOLF -->
+  <section id="golf" class="story-sec">
+    <div class="two-col">
+      <div class="an">
+        <div class="eyebrow">&mdash; 03</div>
+        <h2 class="sec-title">Golf</h2>
+        <p class="story-lead">Away from the shop and classroom, golf is where athletic mechanics meet patience, course strategy, and continual self-calibration.</p>
+        <ul class="story-list">
+          <li>Translating rotational biomechanics from competitive baseball into swing mechanics</li>
+          <li>Focused on precision, repeatable fundamentals, and calm execution</li>
+        </ul>
+      </div>
+      <div class="an">
+        <img class="feature-img" src="./hero3.jpg" alt="Golf driving range">
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. ENGINEERING -->
+  <section id="engineering" class="story-sec">
+    <div class="two-col">
+      <div class="an">
+        <div class="eyebrow">&mdash; 04</div>
+        <h2 class="sec-title">Engineering</h2>
+        <p class="story-lead">Pursuing Mechanical Engineering (Aerospace concentration) at UBC Okanagan to bridge hands-on flight experience with structural and aerodynamic design.</p>
+        <ul class="story-list">
+          <li>Aerostructures &amp; Composites subteam member at UBCO Aerospace (SRAD liquid rocket)</li>
+          <li>Hands-on wet layup fabrication with carbon fiber, fiberglass, and epoxy resin systems</li>
+          <li>3D CAD modeling and Flow Simulation CFD validation in SolidWorks &amp; ANSYS</li>
+          <li>Focused on lightweight composite airframes and fluid-structure interaction</li>
+        </ul>
+      </div>
+      <div class="an">
+        <img class="feature-img" src="./hero2.jpg" alt="Composite rocket nose cone fabrication">
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  Dylan Klatt &middot; <a href="index.html">Home</a> &middot; <a href="https://www.linkedin.com/in/dylan-klatt-499aa4345" target="_blank" rel="noopener">Connect on LinkedIn</a>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add("v");
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll(".an").forEach((el, i) => {
+    el.style.transitionDelay = (i % 4) * 0.08 + "s";
+    obs.observe(el);
+  });
+</script>
+</body>
+</html>
