@@ -94,9 +94,10 @@
   /* Flight Balanced Dual-Portrait Media (f1.jpg + f2.mp4 takeoff video) */
   .flight-media{height:440px;object-position:center 25%}
 
-/* Golf 4-Slot Vertical 2x2 Grid (g3.jpg + g2.mp4 | g4.jpg + g1.mp4) */
-  .golf-img{height:260px;object-position:center 22%}
-  .golf-vid{height:360px;object-position:center 75%}
+  /* Golf Dual-Portrait Side-by-Side (g3.jpg + g2.mp4) */
+  .golf-media{height:440px}
+  img.golf-media{object-position:center 22%}
+  video.golf-media{object-position:center 75%}
 
   /* Engineering */
   .img-portrait-solo{height:380px;object-position:center 18%}
@@ -216,7 +217,7 @@
     </div>
   </section>
 
-  <!-- 3. GOLF (g3.jpg + g2.mp4 | g4.jpg + g1.mp4) -->
+  <!-- 3. GOLF (g3.jpg + g2.mp4 side-by-side) -->
   <section id="golf" class="story-sec">
     <div class="story-layout">
       <div class="story-text an">
@@ -230,12 +231,10 @@
         </ul>
       </div>
       <div class="media-col an">
-        <img class="golf-img" src="./photos/g3.jpg" alt="Night driving range session">
-        <video class="golf-vid" src="./photos/g2.mp4" autoplay loop muted playsinline controls aria-label="Down the line iron swing"></video>
+        <img class="golf-media" src="./photos/g3.jpg" alt="Night driving range session">
       </div>
       <div class="media-col an">
-        <img class="golf-img" src="./photos/g4.jpg" alt="Fairway follow-through">
-        <video class="golf-vid" src="./photos/g1.mp4" autoplay loop muted playsinline controls aria-label="Night driver swing"></video>
+        <video class="golf-media" src="./photos/g2.mp4" autoplay loop muted playsinline controls aria-label="Down the line iron swing"></video>
       </div>
     </div>
   </section>
