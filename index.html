@@ -113,7 +113,7 @@
   footer{border-top:1px solid #E5E7EB;padding:36px 24px;text-align:center;font-size:13px;color:#6B7280;background:#FFF;margin-top:40px}
   footer a{color:#111827;font-weight:600;text-decoration:none}
 
-  /* Dark Mode Theme */
+  /* Dark Mode Theme (Synced with about.html via localStorage 'dk-theme') */
   body.dark{background:#0B0F17;color:#F3F4F6}
   body.dark nav{background:rgba(11,15,23,0.9);border-bottom-color:#1F2937}
   body.dark .brand,body.dark .sec-title,body.dark .sk-n,body.dark .cred-t,body.dark .et,body.dark .rt,body.dark footer a,body.dark .visit-badge span#visit-count{color:#F9FAFB}
@@ -141,6 +141,7 @@
 </style>
 </head>
 <body>
+<script>if(localStorage.getItem("dk-theme")==="dark")document.body.classList.add("dark");</script>
 
 <nav>
   <div class="nav-in">
@@ -337,7 +338,7 @@
     if (el) el.textContent = standing;
   })();
 
-  // Dark Mode Toggle (persists across reloads)
+  // Dark Mode Toggle (persists & syncs across reloads & pages)
   (function () {
     const btn = document.getElementById("theme-toggle");
     const icon = document.getElementById("theme-icon");
@@ -349,13 +350,16 @@
       icon.innerHTML = isDark ? sunSVG : moonSVG;
     }
 
-    const saved = localStorage.getItem("dk-theme");
-    applyTheme(saved === "dark");
+    applyTheme(localStorage.getItem("dk-theme") === "dark");
 
     btn.addEventListener("click", () => {
       const next = !document.body.classList.contains("dark");
       applyTheme(next);
       localStorage.setItem("dk-theme", next ? "dark" : "light");
+    });
+
+    window.addEventListener("storage", (e) => {
+      if (e.key === "dk-theme") applyTheme(e.newValue === "dark");
     });
   })();
 
