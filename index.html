@@ -253,7 +253,7 @@
       <div>
         <div class="eyebrow" style="margin-bottom:4px">&mdash; Education</div>
         <div class="et">B.A.Sc. Mechanical Engineering</div>
-        <div class="es">Aerospace concentration &middot; <u>University of British Columbia</u></div>
+        <div class="es"><span id="year-standing">1st Year</span> &middot; Aerospace concentration &middot; <u>University of British Columbia</u></div>
       </div>
     </div>
     <div class="row an">
@@ -325,6 +325,16 @@
 </footer>
 
 <script>
+  // Dynamic Academic Year Standing (advances each September starting Sept 2026)
+  (function () {
+    const now = new Date();
+    const yr = now.getFullYear() - 2026 + (now.getMonth() >= 8 ? 1 : 0);
+    const ordinals = ["1st", "2nd", "3rd", "4th", "5th"];
+    const standing = yr >= 5 ? "B.A.Sc. Graduate" : (ordinals[Math.max(0, yr - 1)] + " Year");
+    const el = document.getElementById("year-standing");
+    if (el) el.textContent = standing;
+  })();
+
   // 1. Typewriter Headline Animation ("Hello" -> backspace -> "I'm Dylan")
   window.addEventListener("DOMContentLoaded", function () {
     const el = document.getElementById("typed-headline");
