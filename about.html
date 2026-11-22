@@ -8,16 +8,21 @@
 <style>
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{margin:0;background:#FAFAFA;color:#111827;font-family:'Inter',-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+  body{margin:0;background:#FAFAFA;color:#111827;font-family:'Inter',-apple-system,sans-serif;-webkit-font-smoothing:antialiased;transition:background .25s ease,color .25s ease}
 
   /* Sticky Top Nav (matches index.html) */
-  nav{position:sticky;top:0;z-index:50;background:rgba(250,250,250,0.92);backdrop-filter:blur(12px);border-bottom:1px solid #EBECEF}
+  nav{position:sticky;top:0;z-index:50;background:rgba(250,250,250,0.92);backdrop-filter:blur(12px);border-bottom:1px solid #EBECEF;transition:background .25s ease,border-color .25s ease}
   .nav-in{max-width:1120px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between}
   .brand{font-weight:700;font-size:17px;color:#111827;text-decoration:none;letter-spacing:-0.02em}
   .nav-links{display:flex;gap:28px;align-items:center}
-  .nav-links a{font-size:14px;font-weight:500;color:#6B7280;text-decoration:none;padding:6px 0;border-bottom:2px solid transparent;transition:.2s}
+  .nav-links a{position:relative;font-size:14px;font-weight:500;color:#6B7280;text-decoration:none;padding:8px 0;transition:.2s}
   .nav-links a:hover{color:#111827}
-  .nav-links a.active{color:#111827;font-weight:600;border-bottom-color:#111827}
+  .nav-links a.active{color:#111827;font-weight:600}
+  .nav-links a.active::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2.5px;border-radius:999px;background:#111827}
+  .nav-actions{display:flex;align-items:center;gap:12px}
+  .theme-btn{width:38px;height:38px;border-radius:50%;border:1px solid #E5E7EB;background:#FFF;color:#4B5563;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s,border-color .2s,color .2s,transform .15s;padding:0}
+  .theme-btn:hover{background:#F3F4F6;border-color:#9CA3AF;color:#111827}
+  .theme-btn:active{transform:scale(.94)}
   .nav-cta{display:inline-flex;align-items:center;gap:6px;padding:9px 20px;border-radius:999px;font-size:13.5px;font-weight:600;color:#FFF;background:#111827;text-decoration:none;transition:.2s}
   .nav-cta:hover{background:#374151;transform:translateY(-1px)}
   @media(max-width:720px){.nav-links a.hide-m{display:none}}
@@ -39,7 +44,7 @@
 
   /* TOP: Biography Section */
   .bio-sec{padding-top:56px;padding-bottom:68px;border-bottom:1px solid #E5E7EB}
-  .bio-card{background:#FFF;border:1px solid #E5E7EB;border-left:4px solid #206A94;border-radius:18px;padding:36px 40px;box-shadow:0 4px 20px rgba(0,0,0,.03);max-width:860px}
+  .bio-card{background:#FFF;border:1px solid #E5E7EB;border-left:4px solid #206A94;border-radius:18px;padding:36px 40px;box-shadow:0 4px 20px rgba(0,0,0,.03);max-width:860px;transition:background .25s ease,border-color .25s ease}
   @media(max-width:640px){.bio-card{padding:26px 22px}}
   .bio-card p{font-size:16.5px;line-height:1.75;color:#374151;margin:0 0 18px}
   .bio-card p:last-child{margin-bottom:0;font-weight:500;color:#111827}
@@ -106,12 +111,42 @@
   img.golf-media{object-position:center 22%}
   video.golf-media{object-position:center 75%}
 
+  /* Bottom-Right Visit Counter Badge */
+  .visit-badge{position:fixed;bottom:20px;right:20px;z-index:45;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,0.92);backdrop-filter:blur(10px);border:1px solid #E5E7EB;box-shadow:0 4px 16px rgba(0,0,0,.06);font-size:12px;font-weight:600;color:#4B5563;transition:background .25s ease,border-color .25s ease,color .25s ease}
+  .visit-dot{width:7px;height:7px;border-radius:50%;background:#10B981;flex-shrink:0}
+  .visit-badge span#visit-count{color:#111827;font-variant-numeric:tabular-nums}
+
   /* Footer */
-  footer{border-top:1px solid #E5E7EB;padding:36px 24px;text-align:center;font-size:13px;color:#6B7280;background:#FFF;margin-top:20px}
+  footer{border-top:1px solid #E5E7EB;padding:36px 24px;text-align:center;font-size:13px;color:#6B7280;background:#FFF;margin-top:20px;transition:background .25s ease,border-color .25s ease}
   footer a{color:#111827;font-weight:600;text-decoration:none}
+
+  /* Dark Mode Theme (Synced with index.html via localStorage 'dk-theme') */
+  body.dark{background:#0B0F17;color:#F3F4F6}
+  body.dark nav{background:rgba(11,15,23,0.9);border-bottom-color:#1F2937}
+  body.dark .brand,body.dark .sec-title,body.dark .bio-card p:last-child,body.dark footer a,body.dark .visit-badge span#visit-count{color:#F9FAFB}
+  body.dark .nav-links a{color:#9CA3AF}
+  body.dark .nav-links a:hover,body.dark .nav-links a.active{color:#F9FAFB}
+  body.dark .nav-links a.active::after{background:#F9FAFB}
+  body.dark .theme-btn{background:#111827;border-color:#263042;color:#E5E7EB}
+  body.dark .theme-btn:hover{background:#1F2937;border-color:#4B5563}
+  body.dark .nav-cta{background:#F9FAFB;color:#111827}
+  body.dark .nav-cta:hover{background:#E5E7EB}
+  body.dark .page-title,body.dark .worlds-hero .sec-title{color:#5BA4CF !important}
+  body.dark .page-sub,body.dark .story-list li,body.dark footer{color:#9CA3AF}
+  body.dark .bio-card,body.dark .world-card,body.dark .btn{background:#111827;border-color:#1F2937;color:#F3F4F6}
+  body.dark .bio-card{border-left-color:#5BA4CF}
+  body.dark .world-card:hover,body.dark .btn:hover{border-color:#6B7280;background:#161F30}
+  body.dark .world-img-wrap{background:#1A2234;border-color:#1F2937}
+  body.dark .bio-card p,body.dark .story-lead{color:#D1D5DB}
+  body.dark .story-list li::before{background:#5BA4CF}
+  body.dark .media-col img,body.dark .media-col video{border-color:#1F2937;background:#111827}
+  body.dark .bio-sec,body.dark .worlds-hero,body.dark .story-sec,body.dark footer{border-color:#1F2937}
+  body.dark footer{background:#0B0F17}
+  body.dark .visit-badge{background:rgba(17,24,39,0.92);border-color:#1F2937;color:#9CA3AF}
 </style>
 </head>
 <body>
+<script>if(localStorage.getItem("dk-theme")==="dark")document.body.classList.add("dark");</script>
 
 <nav>
   <div class="nav-in">
@@ -120,10 +155,14 @@
       <a class="hide-m" href="index.html#skills">Skills</a>
       <a class="hide-m" href="index.html#credentials">Credentials</a>
       <a class="hide-m" href="index.html#experience">Experience</a>
-      <a class="hide-m" href="index.html#work">Projects</a>
       <a class="active" href="about.html">About me</a>
     </div>
-    <a class="nav-cta" href="https://www.linkedin.com/in/dylan-klatt-499aa4345" target="_blank" rel="noopener">LinkedIn &rarr;</a>
+    <div class="nav-actions">
+      <button class="theme-btn" id="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <svg id="theme-icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a class="nav-cta" href="https://www.linkedin.com/in/dylan-klatt-499aa4345" target="_blank" rel="noopener">LinkedIn &rarr;</a>
+    </div>
   </div>
 </nav>
 
@@ -145,9 +184,9 @@
   <!-- 3 WORLDS, ONE STORY -->
   <section class="worlds-hero">
     <div class="an">
-      <div class="eyebrow">&mdash; Beyond the Workshop</div>
+      <div class="eyebrow">&mdash; Beyond the Lab</div>
       <h2 class="sec-title" style="font-size:clamp(30px,4vw,42px);color:#206A94">3 worlds, one story</h2>
-      <p class="page-sub">From the field and cockpit to the range—each discipline has shaped me as an engineer.</p>
+      <p class="page-sub">From competitive ballparks and flight decks to the driving range—each discipline shapes how I approach engineering problems.</p>
     </div>
 
     <div class="worlds-grid">
@@ -247,11 +286,57 @@
   </section>
 </div>
 
+<!-- Bottom-Right Live Visit Counter -->
+<div class="visit-badge" title="Total site visits">
+  <span class="visit-dot"></span>
+  <span>Visits: <span id="visit-count">...</span></span>
+</div>
+
 <footer>
   Dylan Klatt &middot; <a href="index.html">Back to Home</a> &middot; <a href="https://www.linkedin.com/in/dylan-klatt-499aa4345" target="_blank" rel="noopener">Connect on LinkedIn</a>
 </footer>
 
 <script>
+  // Dark Mode Toggle (synced across index.html & about.html via localStorage)
+  (function () {
+    const btn = document.getElementById("theme-toggle");
+    const icon = document.getElementById("theme-icon");
+    const moonSVG = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+    const sunSVG = '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
+
+    function applyTheme(isDark) {
+      document.body.classList.toggle("dark", isDark);
+      icon.innerHTML = isDark ? sunSVG : moonSVG;
+    }
+
+    applyTheme(localStorage.getItem("dk-theme") === "dark");
+
+    btn.addEventListener("click", () => {
+      const next = !document.body.classList.contains("dark");
+      applyTheme(next);
+      localStorage.setItem("dk-theme", next ? "dark" : "light");
+    });
+  })();
+
+  // Live Global Website Visit Counter (reads total count without double-incrementing on internal navigation)
+  (function () {
+    const countEl = document.getElementById("visit-count");
+    fetch("https://api.counterapi.dev/v1/dylanklatt-portfolio/visits")
+      .then(res => res.json())
+      .then(data => {
+        if (data && typeof data.count === "number") {
+          countEl.textContent = data.count.toLocaleString();
+        } else {
+          throw new Error("Invalid response");
+        }
+      })
+      .catch(() => {
+        const local = parseInt(localStorage.getItem("dk-local-visits") || "1", 10);
+        countEl.textContent = local.toLocaleString();
+      });
+  })();
+
+  // Scroll Reveal
   const obs = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) entry.target.classList.add("v");
