@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About Me · Dylan Klatt</title>
+<meta name="description" content="About Dylan Klatt — Why I chose Mechanical & Aerospace Engineering at UBC Okanagan, plus my background in competitive baseball, aviation (PPL), and golf.">
+<meta property="og:title" content="About Me · Dylan Klatt">
+<meta property="og:description" content="Why I chose Mechanical & Aerospace Engineering at UBC Okanagan, plus my background in competitive baseball, aviation (PPL), and golf.">
+<meta property="og:url" content="https://dylanklatt.com/about.html">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
   *{box-sizing:border-box}
@@ -87,8 +91,7 @@
   }
 
   .story-text{padding-right:10px}
-  .story-lead{font-size:16px;color:#374151;line-height:1.65;margin:0 0 16px}
-  .story-lead + .story-lead{margin-bottom:22px}
+  .story-lead{font-size:16px;color:#374151;line-height:1.65;margin:0 0 22px}
   .story-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:13px}
   .story-list li{position:relative;padding-left:20px;font-size:14.5px;color:#4B5563;line-height:1.55}
   .story-list li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:#206A94}
@@ -176,7 +179,7 @@
         <p>In the summer of 2022, following a baseball tournament in Florida, my dad and I drove straight to Cape Canaveral to watch a SpaceX launch. We arrived two hours early; however, the launch was delayed.</p>
         <p>Being the spoiled brat I was at the time, I convinced my dad to drive me back to Orlando for dinner so I could eat at the world’s largest McDonald’s. While we were eating, SpaceX announced the launch was back on for 10:14 PM; we saw this post at 10:10 PM. Given that Cape Canaveral was an hour-long drive from Orlando, we missed that launch&hellip;</p>
         <p>The look on my dad’s face wasn’t that of disappointment or anger but a sense of solemn wistfulness. He was so excited to see the launch, yet he may never get the chance to watch one again, just because his son wanted to grab a bite at the world’s largest McDonald’s. That disappointment hit me harder than the semi-final we lost that morning. Guided by that memory of my dad’s face, I began the journey toward one specific goal: to not just witness a rocket launch but to help make one happen. This time, with my dad watching from the front row.</p>
-        <p>Watching his son take off solo for the first time does not replace a SpaceX launch, yet giving my dad a front row to my first solo flight was some damn good progress; now, currently fabricating composite aerostructures for the UBCO aerospace design team, I continue to take further leaps closer to that goal.</p>
+        <p>Watching his son take off solo for the first time does not replace a SpaceX launch, yet giving my dad a front row to my first solo flight was some damn good progress; now, currently fabricating composite aerostructures for the UBCO design team, I continue to take further leaps closer to that goal.</p>
       </div>
     </div>
   </section>
@@ -186,7 +189,7 @@
     <div class="an">
       <div class="eyebrow">&mdash; Beyond the Lab</div>
       <h2 class="sec-title" style="font-size:clamp(30px,4vw,42px);color:#206A94">3 worlds, one story</h2>
-      <p class="page-sub">From the field and cockpit to the range—each discipline has developed me into the person I am today.</p>
+      <p class="page-sub">From competitive ballparks and flight decks to the driving range—each discipline shapes how I approach engineering problems.</p>
     </div>
 
     <div class="worlds-grid">
@@ -270,8 +273,8 @@
         <div class="eyebrow">&mdash; World 03</div>
         <h2 class="sec-title">Golf</h2>
         <p class="story-lead">Being a recently retired athlete, I have officially stepped into the realm of golf!</p>
-        <p class="story-lead">Different sport, same approach&mdash;fun is just a side effect of disciplined reps</p>
         <ul class="story-list">
+          <li>Different sport, same approach&mdash;fun is just a side effect of disciplined reps</li>
           <li>Translating rotational mechanics from baseball into a brand new swing</li>
           <li>Leveraging my natural athletic explosiveness to aura farm at the range</li>
         </ul>
@@ -316,9 +319,13 @@
       applyTheme(next);
       localStorage.setItem("dk-theme", next ? "dark" : "light");
     });
+
+    window.addEventListener("storage", (e) => {
+      if (e.key === "dk-theme") applyTheme(e.newValue === "dark");
+    });
   })();
 
-  // Live Global Website Visit Counter (reads total count without double-incrementing on internal navigation)
+  // Live Global Website Visit Counter
   (function () {
     const countEl = document.getElementById("visit-count");
     fetch("https://api.counterapi.dev/v1/dylanklatt-portfolio/visits")
